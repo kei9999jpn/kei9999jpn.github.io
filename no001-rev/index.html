@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -18,66 +18,71 @@ header{text-align:center;padding:40px 18px 18px}
 h2{font-family:'Orbitron';font-weight:900;font-size:clamp(16px,4.4vw,21px);color:#fff;margin:46px auto 6px;max-width:920px;padding:0 18px;letter-spacing:.04em}
 h2 small{font-family:'Rajdhani';font-weight:600;color:#9a8fb0;display:block;font-size:13.5px;margin-top:5px;line-height:1.6}
 .wrap{max-width:920px;margin:0 auto;padding:0 18px}
-.vid video{width:100%;border-radius:14px;border:1px solid #2a1d3a;box-shadow:0 10px 40px rgba(0,229,255,.15);display:block;background:#0a0710;margin-top:14px}
-.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #2a1d3a;border-radius:12px;padding:11px 14px;margin-top:11px}
-.row .lab{flex:0 0 auto;min-width:150px}
+.two{max-width:920px;margin:0 auto;padding:0 18px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.two video,.wrap video{width:100%;border-radius:14px;border:1px solid #2a1d3a;box-shadow:0 10px 36px rgba(0,229,255,.14);display:block;background:#0a0710;margin-top:12px}
+.cap{font-family:'Orbitron';font-weight:700;font-size:12px;color:#fff;letter-spacing:.04em;margin-top:6px;text-align:center}
+.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #2a1d3a;border-radius:12px;padding:10px 14px;margin-top:10px}
+.row .lab{flex:0 0 auto;min-width:160px}
 .row .lab b{font-family:'Orbitron';font-weight:700;font-size:13px;color:#fff;letter-spacing:.03em;display:block}
 .row .lab span{font-size:12.5px;color:#9a8fb0}
-.row audio{flex:1 1 auto;width:100%;height:36px}
-.chip{display:inline-block;font-family:'Orbitron';font-weight:700;font-size:10px;padding:2px 9px;border-radius:7px;border:1.5px solid var(--cyan);color:var(--cyan);margin-left:7px;vertical-align:middle}
-.chip.pk{border-color:var(--pink);color:var(--pink)}
+.row .ab{flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
+.row .ab .one{display:flex;align-items:center;gap:8px}
+.row .ab .one i{font-family:'Share Tech Mono',monospace;font-style:normal;color:var(--cyan);font-size:12px;flex:0 0 22px}
+.row audio{flex:1 1 auto;width:100%;height:34px}
+.note{max-width:920px;margin:9px auto 0;padding:0 20px;color:#8d83a3;font-size:13px;line-height:1.6}
 .ans{max-width:920px;margin:16px auto 0;padding:0 18px}
-.ans .box{background:rgba(16,10,24,.7);border:1px solid #2a1d3a;border-left:3px solid var(--cyan);border-radius:12px;padding:16px 18px;margin-top:12px;line-height:1.8;font-size:14.5px;color:#d7d0e2}
+.ans .box{background:rgba(16,10,24,.7);border:1px solid #2a1d3a;border-left:3px solid var(--cyan);border-radius:12px;padding:15px 18px;margin-top:12px;line-height:1.8;font-size:14.5px;color:#d7d0e2}
 .ans .box b{color:#fff}
 .ans .q{font-family:'Share Tech Mono',monospace;color:var(--cyan);font-size:13px;letter-spacing:.04em;margin-bottom:6px}
-.note{max-width:920px;margin:9px auto 0;padding:0 20px;color:#8d83a3;font-size:13px;line-height:1.6}
 footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spacing:.1em;font-family:'Share Tech Mono',monospace}
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト（試聴ページ）</div>
- <p class="lead"><b>指示書の修正をぜんぶ並べたよ。試聴して選んで！</b>この段階では25分フル素材は作ってない。ここでOK／選択が出たら本番生成に進むね。— リン</p>
+ <div class="tag">POMODORO No.001 — 修正テスト v2（試聴ページ）</div>
+ <p class="lead"><b>フィードバック反映した第2弾！</b>タイマーはHUDリッチに／効果音は控えめデジタルで複数案／音楽はダークアンビ系で／雨は柔らかい小雨に作り直した。試聴して選んでね。25分フルはまだ作ってないよ。— リン</p>
 </header>
 
-<h2>① 新しいタイマーデザイン（§4・§5）<small>タイマー本体を約15%小さく／ゲージを数字よりちょっと長いくらいに短く＆中央寄せ（背景を見せやすく）。出る→カウント→残り5秒で点滅→0で約5秒固まる→出る時と同じアニメで消える、まで入れた。※4:3・サンプルは早送り。効果音は別（②）。</small></h2>
-<div class="wrap vid"><video src="m/timer_v2.mp4" autoplay loop muted playsinline controls></video></div>
-<p class="note">前との違い：ゲージが長すぎたのを短く・中央に。タイマーも控えめサイズに。終わり方（点滅→0で静止→同アニメで退場）も実装。</p>
-
-<h2>② 効果音サンプル（§2）<small>サイバー／HUD系・耳障りにしない方向で合成。各ボタンで試聴して。「これOK」「もっと◯◯」って言ってくれたら本番用に詰める。※タイマーの出る↑と消える↓は別の音にしてる。</small></h2>
-<div class="wrap">
- <div class="row"><div class="lab"><b>字幕が出る</b><span>タイプキー風</span></div><audio src="m/se_type.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>セッション表示</b><span>HUD・未来系</span></div><audio src="m/se_session.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー出る↑</b><span>起動・上がる音</span></div><audio src="m/se_timer_in.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー消える↓</b><span>下がる終了音</span></div><audio src="m/se_timer_out.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー開始</b><span>ピッ系</span></div><audio src="m/se_start.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>残り5秒</b><span>ピッ×4→ピー</span></div><audio src="m/se_count5.mp3" controls preload="none"></audio></div>
+<h2>① タイマー（HUDリッチ・25分＆5分の同系列）<small>ゲージを少し長く＆5分割の区切り線をHUDっぽく見えるように／「// POMODORO.SYS」表示・FOCUS両脇のティック等で装飾UP（でも枠は無し）／タイマー本体は控えめサイズ／5分タイマーも同じ系列に作り直し。出る→カウント→残り5秒点滅→0で5秒固定→出と同じアニメで消える。※4:3・早送り。</small></h2>
+<div class="two">
+ <div><video src="m/timer_v3_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（FOCUS）</div></div>
+ <div><video src="m/timer_v3_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（BREAK）</div></div>
 </div>
 
-<h2>③ 音楽サンプル（バリエーション）（§1・§3）<small>前は「全部アンビエントで単調」だったので、今回は<b>曲ごとにキャラを変えた</b>4曲を作った。同じサイバーパンク／ダーク／落ち着いた枠の中で、テンポ・楽器・リズムが別物。気に入ったタイプを言ってくれたら、その路線で1セッション分（7-8曲・自然に繋ぐ）を本番生成する。</small></h2>
+<h2>② 効果音（控えめ・デジタルHUD・各2パターン）<small>前のはダサくてごめん…作り直した。うっすら聞こえるくらいの控えめ・デジタルHUD系で、各タイプA/Bの2案。試聴して「これ」を選んで（or「もっと◯◯」）。セッション音はHUD出現の“ピリリリリン”デジタル方向。</small></h2>
 <div class="wrap">
- <div class="row"><div class="lab"><b>A ローファイ</b><span>ブンバップ・雨ネオン</span></div><audio src="m/bgmv2_1_lofi.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>B ダークアンビ</b><span>アルペジオ・ドラム無</span></div><audio src="m/bgmv2_2_darkamb.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>C ダブテクノ</b><span>4つ打ち・テープ感</span></div><audio src="m/bgmv2_3_dubtech.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>D チルステップ</b><span>ハーフタイム・きらきら</span></div><audio src="m/bgmv2_4_chillstep.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>字幕が出る</b><span>デジタルtick</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_type_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_type_2.mp3" controls preload="none"></audio></div></div></div>
+ <div class="row"><div class="lab"><b>セッション表示</b><span>ピリリリリン</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_session_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_session_2.mp3" controls preload="none"></audio></div></div></div>
+ <div class="row"><div class="lab"><b>タイマー出る↑</b><span>上がる</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_timer_in_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_timer_in_2.mp3" controls preload="none"></audio></div></div></div>
+ <div class="row"><div class="lab"><b>タイマー消える↓</b><span>下がる</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_timer_out_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_timer_out_2.mp3" controls preload="none"></audio></div></div></div>
+ <div class="row"><div class="lab"><b>タイマー開始</b><span>ピッ</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_start_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_start_2.mp3" controls preload="none"></audio></div></div></div>
+ <div class="row"><div class="lab"><b>残り5秒</b><span>ピッ×4→ピー</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_count5_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_count5_2.mp3" controls preload="none"></audio></div></div></div>
 </div>
-<p class="note">※これは「バリエーションが分かる」サンプル。本番は1セッション内でこういう違う曲が7-8曲、滑らかに切り替わる構成にする（セッションごとに別の曲セット）。</p>
 
-<h2>④ 雨の音 3パターン（§6）<small>「ノイズっぽい・うるさい」のを直して、滑らかで耳に優しい雨に。たまに優しい“ポツポツ”（水滴）が入る（KEI曰く落ち着く、とのことなので残した）。3つから選んで。</small></h2>
+<h2>③ 音楽（ダークアンビ／ダブ系・静かめ）（§1・§3）<small>「ダークアンビが一番近い・落ち着いた静かめ」を受けて、その方向で4曲。ただし“似すぎ”を避けるため雰囲気を変えてある。気に入った路線を言ってくれたら、その方向で1セッション分（7-8曲・自然に繋ぐ）を本番生成する。</small></h2>
 <div class="wrap">
- <div class="row"><div class="lab"><b>1 ソフト</b><span>軽め・優しい</span></div><audio src="m/rain_1_soft.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>2 コージー</b><span>ほどよい・定番</span></div><audio src="m/rain_2_cozy.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>3 ディープ</b><span>低音多め・しっとり</span></div><audio src="m/rain_3_deep.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>A ドローン</b><span>深い持続音・ドラム無</span></div><audio src="m/bgmv3_1_drone.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>B ダブ</b><span>こもったキック・ミニマル</span></div><audio src="m/bgmv3_2_dub.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>C アルペジオ</b><span>鼓動パルス＋シンセ</span></div><audio src="m/bgmv3_3_arp.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>D 温かいダブ</b><span>アナログ和音・瞑想的</span></div><audio src="m/bgmv3_4_warmdub.mp3" controls preload="none"></audio></div>
+</div>
+<p class="note">※本番は1セッション内でこの路線の“違う曲”が7-8曲、滑らかに切り替わる構成（セッションごとに別の曲セット）。似すぎないようにする。</p>
+
+<h2>④ 雨の音 3パターン（柔らかい小雨に作り直し）（§6）<small>前のは滝っぽかったので、連続ノイズを抑えて<b>柔らかい小雨＋優しいポツポツ（水滴）</b>に。土砂降りにしてない。3つから選んで。</small></h2>
+<div class="wrap">
+ <div class="row"><div class="lab"><b>1 ライト</b><span>軽め小雨</span></div><audio src="m/rain_1_light.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>2 ステディ</b><span>ほどよい粒</span></div><audio src="m/rain_2_steady.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>3 コージー</b><span>低めしっとり</span></div><audio src="m/rain_3_cozy.mp3" controls preload="none"></audio></div>
 </div>
 
 <h2>⑤ 各項目への回答（§7）</h2>
 <div class="ans">
- <div class="box"><div class="q">// Q. 音楽は実際どう処理してた？1曲を25分ループしてた？</div>
-  <b>いいえ、1曲ループではないです。</b>Suno AIで<b>20曲を別々のプロンプト</b>（neon alley／off-world colony／cyberspace／midnight monorail／rooftop garden／replicant memories…とシーンを変えて）で生成して、その中の数曲をクロスフェードで繋いで25分のベッドを作っていました（繋ぎ自体は滑らか）。</div>
- <div class="box"><div class="q">// Q. なんで曲がミックスされず単調になった？</div>
-  原因は2つ。<br><b>1) 全曲を「アンビエント（atmospheric pad系）」として生成した</b>こと。プロンプトのシーンは違っても、音楽的なキャラ（遅いテンポ・メロディ／リズムの起伏が少ない）が一様だったので、結果“どれも似た雰囲気”＝単調に聞こえました。＝「似たり寄ったりの曲を量産してしまった」というKEIの読みは当たりです。<br><b>2) 生成時に約半数がDL失敗</b>（SunoのcdnでHTTP403＝まだレンダ中のまま取得できず）。使える曲のバリエーションがさらに減っていました。</div>
+ <div class="box"><div class="q">// Q. 音楽は実際どう処理してた？1曲を25分ループ？</div>
+  <b>いいえ、1曲ループではないです。</b>Suno AIで<b>20曲を別々のプロンプト</b>（neon alley／off-world colony／cyberspace／midnight monorail 等シーンを変えて）生成し、数曲をクロスフェードで繋いで25分ベッドを作っていました（繋ぎは滑らか）。KEIが「20曲別々にやってたんだ、じゃあ違ってたんだね」と言ってた通りです。</div>
+ <div class="box"><div class="q">// Q. なんで単調に聞こえた？</div>
+  原因2つ：<b>1)</b> 全曲を「アンビエント（pad系）」として生成したので、シーンは違っても音楽的キャラ（遅い・メロ/リズムの起伏少）が一様→“どれも似た雰囲気”に。<b>2)</b> 生成の約半数がDL失敗（cdn 403=レンダ中）でバリエーションがさらに減少。</div>
  <div class="box"><div class="q">// Q. 今回どう直す？</div>
-  <b>音楽的キャラをハッキリ変える。</b>同じ「サイバーパンク／ダーク／落ち着いた作業用」の枠は維持しつつ、<b>テンポ・楽器・リズムを曲ごとに変える</b>（上の③＝ローファイ・ビート／ダークアンビ・アルペジオ／ダブ・4つ打ち／チルステップ・ハーフタイム）。本番は1セッション25分に<b>7-8曲を自然に繋ぐ</b>＋<b>セッションごとに別の曲セット</b>。DL失敗対策にリトライも強化済み。<br>雨は、ノイズっぽさを抑えて滑らかに＋優しいポツポツを残す方向（上の④）。</div>
+  <b>キャラを明確に変える＋似すぎ回避。</b>ダークアンビ／ダブの静かめ路線を維持しつつ、曲ごとに雰囲気を変える（上の③）。本番は1セッション25分に7-8曲を自然に繋ぐ＋セッションごと別セット。DL失敗対策のリトライも強化済み。雨はノイズを抑え小雨＋ポツポツに（上の④）。</div>
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v2 · made with Claude Code · リン</footer>
 </body></html>
