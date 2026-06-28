@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト v2</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -13,42 +13,62 @@ header{text-align:center;padding:40px 18px 18px}
 .brand{font-family:'Zen Dots';font-size:clamp(26px,7vw,44px);color:#fff;text-shadow:0 0 22px rgba(255,45,134,.8)}
 .brand i{color:var(--pink);font-style:normal}
 .tag{font-family:'Orbitron';font-weight:700;letter-spacing:.28em;color:var(--cyan);margin-top:9px;font-size:clamp(11px,3vw,14px);text-shadow:0 0 12px rgba(0,229,255,.8)}
-.lead{max-width:760px;margin:16px auto 0;padding:0 18px;color:#cfc8da;line-height:1.7;font-size:15px}
+.lead{max-width:780px;margin:16px auto 0;padding:0 18px;color:#cfc8da;line-height:1.7;font-size:15px}
 .lead b{color:#fff}
-h2{font-family:'Orbitron';font-weight:900;font-size:clamp(16px,4.4vw,21px);color:#fff;margin:46px auto 6px;max-width:920px;padding:0 18px;letter-spacing:.04em}
-h2 small{font-family:'Rajdhani';font-weight:600;color:#9a8fb0;display:block;font-size:13.5px;margin-top:5px;line-height:1.6}
+h2{font-family:'Orbitron';font-weight:900;font-size:clamp(16px,4.4vw,21px);color:#fff;margin:48px auto 6px;max-width:920px;padding:0 18px;letter-spacing:.04em}
+h2 small{font-family:'Rajdhani';font-weight:600;color:#9a8fb0;display:block;font-size:13.5px;margin-top:6px;line-height:1.65}
 .wrap{max-width:920px;margin:0 auto;padding:0 18px}
 .two{max-width:920px;margin:0 auto;padding:0 18px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .two video,.wrap video{width:100%;border-radius:14px;border:1px solid #2a1d3a;box-shadow:0 10px 36px rgba(0,229,255,.14);display:block;background:#0a0710;margin-top:12px}
 .cap{font-family:'Orbitron';font-weight:700;font-size:12px;color:#fff;letter-spacing:.04em;margin-top:6px;text-align:center}
+.chip{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:11px;color:#06040b;background:var(--cyan);border-radius:20px;padding:2px 10px;margin-left:8px;vertical-align:middle;letter-spacing:.06em}
+.flow{max-width:920px;margin:14px auto 0;padding:14px 18px;background:rgba(16,10,24,.6);border:1px solid #2a1d3a;border-radius:12px;font-size:13.5px;color:#cfc8da;line-height:1.9}
+.flow b{color:var(--cyan)}
 .row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #2a1d3a;border-radius:12px;padding:10px 14px;margin-top:10px}
-.row .lab{flex:0 0 auto;min-width:160px}
+.row .lab{flex:0 0 auto;min-width:150px}
 .row .lab b{font-family:'Orbitron';font-weight:700;font-size:13px;color:#fff;letter-spacing:.03em;display:block}
 .row .lab span{font-size:12.5px;color:#9a8fb0}
 .row .ab{flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
 .row .ab .one{display:flex;align-items:center;gap:8px}
 .row .ab .one i{font-family:'Share Tech Mono',monospace;font-style:normal;color:var(--cyan);font-size:12px;flex:0 0 22px}
 .row audio{flex:1 1 auto;width:100%;height:34px}
-.note{max-width:920px;margin:9px auto 0;padding:0 20px;color:#8d83a3;font-size:13px;line-height:1.6}
-.ans{max-width:920px;margin:16px auto 0;padding:0 18px}
-.ans .box{background:rgba(16,10,24,.7);border:1px solid #2a1d3a;border-left:3px solid var(--cyan);border-radius:12px;padding:15px 18px;margin-top:12px;line-height:1.8;font-size:14.5px;color:#d7d0e2}
-.ans .box b{color:#fff}
-.ans .q{font-family:'Share Tech Mono',monospace;color:var(--cyan);font-size:13px;letter-spacing:.04em;margin-bottom:6px}
+.big audio{width:100%;height:40px;margin-top:10px}
+.note{max-width:920px;margin:9px auto 0;padding:0 20px;color:#8d83a3;font-size:13px;line-height:1.7}
+.done{color:#7CFC9A}.todo{color:#ffd36b}
 footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spacing:.1em;font-family:'Share Tech Mono',monospace}
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト v2（試聴ページ）</div>
- <p class="lead"><b>フィードバック反映した第2弾！</b>タイマーはHUDリッチに／効果音は控えめデジタルで複数案／音楽はダークアンビ系で／雨は柔らかい小雨に作り直した。試聴して選んでね。25分フルはまだ作ってないよ。— リン</p>
+ <div class="tag">POMODORO No.001 — 修正テスト v3（リン）</div>
+ <p class="lead"><b>夜のうちに作り直したよ！</b>タイマーの余計な飾りを全部消して、演出（スタンバイ→カウント→FOCUS→終わり）を作り直した。5分休憩は円形＋休憩メッセージ、字幕はタイピング式に。全部クロマキー緑だよ。— リン</p>
 </header>
 
-<h2>① タイマー（HUDリッチ・25分＆5分の同系列）<small>ゲージを少し長く＆5分割の区切り線をHUDっぽく見えるように／「// POMODORO.SYS」表示・FOCUS両脇のティック等で装飾UP（でも枠は無し）／タイマー本体は控えめサイズ／5分タイマーも同じ系列に作り直し。出る→カウント→残り5秒点滅→0で5秒固定→出と同じアニメで消える。※4:3・早送り。</small></h2>
-<div class="two">
- <div><video src="m/timer_v3_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（FOCUS）</div></div>
- <div><video src="m/timer_v3_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（BREAK）</div></div>
+<div class="flow">
+ <b>動画全体の流れ（覚えてるよ）</b>：字幕「集中しよ」→ 5,4,3,2,1 の音で 25分タイマーがスタート → 終わって少しして 5分休憩タイマーが出る（休憩中は雨の音だけ・BGMなし）→ これを4回 → 締めの字幕。
 </div>
 
-<h2>② 効果音（控えめ・デジタルHUD・各2パターン）<small>前のはダサくてごめん…作り直した。うっすら聞こえるくらいの控えめ・デジタルHUD系で、各タイプA/Bの2案。試聴して「これ」を選んで（or「もっと◯◯」）。セッション音はHUD出現の“ピリリリリン”デジタル方向。</small></h2>
+<h2>① 25分タイマー（FOCUS）<span class="chip">作り直し</span>
+ <small>四つ角の枠・後ろのデジタル線・余計な文字を全削除。上の文字は<b>STANDBY → FOCUS → DONE</b>だけ。ゲージは5分割の薄い線だけにして溜まっていく方式。<br>演出＝出る→6秒スタンバイ→<b>5,4,3,2,1で開始（効果音＋ゆっくり点滅）</b>→FOCUSでゲージ充填→残り5秒も5,4,3,2,1,0で点滅→0で締め→0のまま5秒→出た時と同じ感じで消える。※プレビューは早送り。</small></h2>
+<div class="wrap"><video src="m/timer_v4_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（クロマキー緑）</div></div>
+
+<h2>② 5分休憩タイマー（BREAK）<span class="chip">作り直し</span>
+ <small>円形のまま。上は<b>BREAK</b>だけ。「1Ⅳ／REST &amp; STRETCH」みたいな固定文字は廃止して、代わりに<b>休憩アクション（STRETCH／DRINK WATER／REST YOUR EYES…）がHUD風に出て消え、ゆっくり切り替わる</b>方式に（本番は約30秒に1回）。</small></h2>
+<div class="wrap"><video src="m/timer_v4_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（クロマキー緑）</div></div>
+
+<h2>③ 字幕<span class="chip">作り直し</span>
+ <small>タイマーの世界観に合わせて<b>タイピング式</b>に。英語が上に大きく中央、下に中国語（小さめ）。出る→静止→消える→次、の流れ。文言は仮（変えてOK）。</small></h2>
+<div class="wrap"><video src="m/subtitle_v4.mp4" autoplay loop muted playsinline controls></video><div class="cap">字幕（英メイン＋中サブ・タイピング）</div></div>
+
+<h2>④ 左上のコマンド文字<span class="chip" style="background:#7CFC9A">変更なし</span>
+ <small>「kei@pomodoro:~$ focus --25min --session 01 / 04」はそのままでOKと言われたので、いじってないよ（session 01〜04の4本ぶんは本番で用意する）。</small></h2>
+
+<h2>⑤ BGM セッション1（25分ベッド）<span class="chip">DJブレンド</span>
+ <small>ダーク&静かめのサイバーパンク作業用を、<b>繋ぎ目が分からないようにDJみたいにクロスフェード</b>で25分1本に編集。<b>セッション1はD（温かいダブ・アナログ・静かめ）多め</b>で構成（→S4に向けてB・A多めにする予定）。<br>※今夜はSunoのブラウザが繋がってなかったので<b>以前作った曲</b>（KEIがOKしてくれた範囲）で組んだ試作。新曲のSuno生成はKEIがいる時に一緒にやろ（クレジット節約のためにも）。下で全体を聴けるよ。</small></h2>
+<div class="wrap big"><audio src="m/bgm_session1_25min.mp3" controls preload="none"></audio>
+ <p class="note">これがセッション1の25分まるごと。繋ぎ目わかる？って所だけ聴いてみて。気になる所あったら言って。</p></div>
+
+<h2>⑥ 効果音（控えめ・デジタルHUD・各A/B）<span class="chip todo" style="background:#ffd36b">選んでね</span>
+ <small>タイマー演出に乗せる音。各タイプA/Bから「これ」を選んで（or「もっと◯◯」）。残り5秒のカウント音もここ。</small></h2>
 <div class="wrap">
  <div class="row"><div class="lab"><b>字幕が出る</b><span>デジタルtick</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_type_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_type_2.mp3" controls preload="none"></audio></div></div></div>
  <div class="row"><div class="lab"><b>セッション表示</b><span>ピリリリリン</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_session_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_session_2.mp3" controls preload="none"></audio></div></div></div>
@@ -58,31 +78,21 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
  <div class="row"><div class="lab"><b>残り5秒</b><span>ピッ×4→ピー</span></div><div class="ab"><div class="one"><i>A</i><audio src="m/se_count5_1.mp3" controls preload="none"></audio></div><div class="one"><i>B</i><audio src="m/se_count5_2.mp3" controls preload="none"></audio></div></div></div>
 </div>
 
-<h2>③ 音楽（ダークアンビ／ダブ系・静かめ）（§1・§3）<small>「ダークアンビが一番近い・落ち着いた静かめ」を受けて、その方向で4曲。ただし“似すぎ”を避けるため雰囲気を変えてある。気に入った路線を言ってくれたら、その方向で1セッション分（7-8曲・自然に繋ぐ）を本番生成する。</small></h2>
-<div class="wrap">
- <div class="row"><div class="lab"><b>A ドローン</b><span>深い持続音・ドラム無</span></div><audio src="m/bgmv3_1_drone.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>B ダブ</b><span>こもったキック・ミニマル</span></div><audio src="m/bgmv3_2_dub.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>C アルペジオ</b><span>鼓動パルス＋シンセ</span></div><audio src="m/bgmv3_3_arp.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>D 温かいダブ</b><span>アナログ和音・瞑想的</span></div><audio src="m/bgmv3_4_warmdub.mp3" controls preload="none"></audio></div>
-</div>
-<p class="note">※本番は1セッション内でこの路線の“違う曲”が7-8曲、滑らかに切り替わる構成（セッションごとに別の曲セット）。似すぎないようにする。</p>
-
-<h2>④ 雨の音 3パターン（柔らかい小雨に作り直し）（§6）<small>前のは滝っぽかったので、連続ノイズを抑えて<b>柔らかい小雨＋優しいポツポツ（水滴）</b>に。土砂降りにしてない。3つから選んで。</small></h2>
+<h2>⑦ 雨の音 3パターン（柔らかい小雨）<span class="chip todo" style="background:#ffd36b">選んでね</span>
+ <small>連続ノイズを抑えた<b>柔らかい小雨＋優しいポツポツ</b>。休憩中はこの雨だけ流れる。3つから選んで。</small></h2>
 <div class="wrap">
  <div class="row"><div class="lab"><b>1 ライト</b><span>軽め小雨</span></div><audio src="m/rain_1_light.mp3" controls preload="none"></audio></div>
  <div class="row"><div class="lab"><b>2 ステディ</b><span>ほどよい粒</span></div><audio src="m/rain_2_steady.mp3" controls preload="none"></audio></div>
  <div class="row"><div class="lab"><b>3 コージー</b><span>低めしっとり</span></div><audio src="m/rain_3_cozy.mp3" controls preload="none"></audio></div>
 </div>
 
-<h2>⑤ 各項目への回答（§7）</h2>
-<div class="ans">
- <div class="box"><div class="q">// Q. 音楽は実際どう処理してた？1曲を25分ループ？</div>
-  <b>いいえ、1曲ループではないです。</b>Suno AIで<b>20曲を別々のプロンプト</b>（neon alley／off-world colony／cyberspace／midnight monorail 等シーンを変えて）生成し、数曲をクロスフェードで繋いで25分ベッドを作っていました（繋ぎは滑らか）。KEIが「20曲別々にやってたんだ、じゃあ違ってたんだね」と言ってた通りです。</div>
- <div class="box"><div class="q">// Q. なんで単調に聞こえた？</div>
-  原因2つ：<b>1)</b> 全曲を「アンビエント（pad系）」として生成したので、シーンは違っても音楽的キャラ（遅い・メロ/リズムの起伏少）が一様→“どれも似た雰囲気”に。<b>2)</b> 生成の約半数がDL失敗（cdn 403=レンダ中）でバリエーションがさらに減少。</div>
- <div class="box"><div class="q">// Q. 今回どう直す？</div>
-  <b>キャラを明確に変える＋似すぎ回避。</b>ダークアンビ／ダブの静かめ路線を維持しつつ、曲ごとに雰囲気を変える（上の③）。本番は1セッション25分に7-8曲を自然に繋ぐ＋セッションごと別セット。DL失敗対策のリトライも強化済み。雨はノイズを抑え小雨＋ポツポツに（上の④）。</div>
+<h2>朝のKEIへ — 見るとこ</h2>
+<div class="flow">
+ 1. <b>タイマー①②</b>と<b>字幕③</b>の見た目＆演出、これでOK？「ここ違う」だけ番号で教えて。<br>
+ 2. <b>BGM⑤</b>を流して、繋ぎ目が自然か聴いてみて（DJブレンドの試作）。<br>
+ 3. <b>効果音⑥</b>はA/Bどっち、<b>雨⑦</b>は1〜3どれ、を選んで。<br>
+ 4. OKもらったら→本番フル尺（25分/5分・session01〜04・字幕全部）に進む＋Sunoで新曲足してセッション2〜4も作る。
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test v2 · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v3 · made with Claude Code · リン</footer>
 </body></html>
