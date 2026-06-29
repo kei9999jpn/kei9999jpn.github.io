@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト v8</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v9</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト v8（リン）</div>
- <p class="lead"><b>細かいとこ直したよ！</b>タイマーの上の小文字を消して全体を少し小さく＆中心にまとめた。休憩の呼吸は<b>ゲージ自体に乗る光</b>に作り直し。吹き出しは<b>尻尾なし＝どの位置のキャラでもOK＋もっと暗く</b>。左上コマンドは<b>小さく左上に</b>。応援セリフは20個に。全部クロマキー緑。</p>
+ <div class="tag">POMODORO No.001 — 修正テスト v9（リン）</div>
+ <p class="lead"><b>微調整したよ！</b>ゲージを10%長く。休憩は<b>周りの光をやめてクリーン</b>に。字幕は<b>FOCUS TIME / BREAK TIME</b>＋<b>！で感情</b>を足した。吹き出しHUDは<b>特殊な形に全面リデザイン＋枠が組み上がってから文字が出る</b>登場に。全部クロマキー緑。</p>
 </header>
 
 <div class="flow">
@@ -47,21 +47,21 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 </div>
 
 <h2>① 25分タイマー（FOCUS）<span class="chip">直した</span>
- <small>上の小文字「// pomodoro…」を<b>削除</b>。FOCUS と数字を<b>中心に寄せて全体を約10%小さく</b>。イントロ＝3秒で完成→3秒待つ→カウントダウン（ゲージは25分かけて溜まる）。数字は等幅で固定。終わり方は据え置き。※プレビュー早送り。</small></h2>
+ <small><b>ゲージを10%長く</b>した。FOCUSと数字は中心寄せ・全体やや小さめ。イントロ＝3秒で完成→3秒待つ→カウントダウン（ゲージは25分かけて溜まる）。数字は等幅で固定。終わり方は据え置き。※プレビュー早送り。</small></h2>
 <div class="wrap"><video src="m/timer_v4_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（クロマキー緑）</div></div>
 
-<h2>② 5分休憩タイマー（BREAK）<span class="chip">作り直した</span>
- <small>外側の枠っぽい呼吸はやめて、<b>ゲージ（リング）自体の後ろに、リングより少し太い光が呼吸するエフェクト</b>に作り直した＋<b>リング上に細かい光の粒</b>。前のは安っぽかったね、ごめん。上は BREAK のみ。下は休憩アクション5パターン（本番1分1個）。</small></h2>
+<h2>② 5分休憩タイマー（BREAK）<span class="chip">直した</span>
+ <small>周りの光は<b>無し</b>に戻した（25分タイマーと同じクリーンな雰囲気）。円形リング＋上は BREAK のみ＋下は休憩アクション5パターン（本番1分1個）。</small></h2>
 <div class="wrap"><video src="m/timer_v4_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（クロマキー緑）</div></div>
 
-<h2>③ 字幕<span class="chip ok">シンプルに戻した</span>
- <small>最低限・ロボHUD調にシンプル化。<b>英語=大きく中央でタイピング</b>、<b>中国語=下に小さく、タイピングせずフェードで出す</b>。文言は<b>英語・中国語ともネイティブ視点で自然か確認済み</b>（辛苦了／感谢观看 等）。</small></h2>
-<div class="wrap"><video src="m/subtitle_v5.mp4" autoplay loop muted playsinline controls></video><div class="cap">字幕（英メイン＋中サブ・確認済み）</div></div>
-<p class="note">採用文言：LET’S FOCUS TOGETHER / FOCUS·25MIN / BREAK·5MIN / WELL DONE / THANKS FOR WATCHING / SEE YOU NEXT TIME（中国語＝一起专注吧／专注25分钟／休息5分钟／辛苦了／感谢观看／下次见）。増減OK。</p>
+<h2>③ 字幕<span class="chip">感情足した</span>
+ <small><b>FOCUS TIME / BREAK TIME</b>に（中点・は削除、TIMEを追加）。所々に<b>！</b>を入れて感情を表現。<b>SEE YOU NEXT TIME は削除</b>。英語=大きくタイピング、中国語=下に小さくフェード。英中とも自然さ確認済み。</small></h2>
+<div class="wrap"><video src="m/subtitle_v5.mp4" autoplay loop muted playsinline controls></video><div class="cap">字幕（英メイン＋中サブ）</div></div>
+<p class="note">採用文言：LET’S FOCUS TOGETHER！／FOCUS TIME／BREAK TIME／WELL DONE！／THANK YOU FOR WATCHING！（中＝一起专注吧！／专注时间／休息时间／辛苦了！／感谢观看！）。増減OK。</p>
 
-<h2>④ 励まし吹き出しHUD（作り直し）<span class="chip new">尻尾なし・20案</span>
- <small><b>尻尾（三角）を削除</b>＝背景キャラが左でも右でもどの位置にいてもOKなHUDチャット枠に。<b>背景の黒も少し暗く</b>した。角張ったデジタル枠＋薄いデジタル模様。本番は4セッション中10分に1回くらい、言葉を変えて。<b>応援系＋集中系＋タイマー系で20案</b>用意したよ（下）。</small></h2>
-<div class="wrap"><video src="m/bubble_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">吹き出しHUD（テスト：YOU GOT THIS · 你可以的）</div></div>
+<h2>④ 励まし吹き出しHUD（全面リデザイン）<span class="chip new">特殊な形</span>
+ <small>一般的な形をやめて<b>オリジナルな"通信スレート"HUD</b>に＝左上を大きく斜めカット＋左下に段差ノッチ＋ヘッダ仕切り＋左の太いアクセントバー＋右の信号ティック＋右上の緑ピコピコ。<b>枠が左→右にスキャンで組み上がってから文字が出る</b>登場アニメ。セリフにも所々！を入れた（例：YOU GOT THIS！）。20案は下。</small></h2>
+<div class="wrap"><video src="m/bubble_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">吹き出しHUD（通信スレート・テスト：YOU GOT THIS！）</div></div>
 <div class="lines"><table>
  <tr><td class="n">01</td><td class="en">STAY FOCUSED</td><td class="zh">保持专注</td><td class="s">集中</td></tr>
  <tr><td class="n">02</td><td class="en">YOU GOT THIS</td><td class="zh">你可以的</td><td class="s">応援</td></tr>
@@ -94,34 +94,20 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
  <small>「いい感じ」って言ってもらえたやつ。静かめD寄り＋音量を均してある。Sunoで作った<b>新しいダークアンビ曲（Rain Code Drifts / Pulse Under Frost など）</b>もできてるから、必要なら差し替え・増量できるよ（全曲4分以上・コロコロ変えない方針で）。</small></h2>
 <div class="wrap big"><audio src="m/bgm_session1_25min.mp3" controls preload="none"></audio></div>
 
-<h2>⑦ 効果音（Sunoサウンド・One-Shot）<span class="chip ok">できた</span>
- <small>Sunoの「サウンド」タブ（One-Shot）で作り直した。前の安っぽい合成は廃止。各音を試聴して「これ採用」「もっと◯◯」を教えて。複数案ほしい音は言ってくれたら追加で作るよ。</small></h2>
-<div class="wrap">
- <div class="row"><div class="lab"><b>字幕が出る</b><span>デジタルtick</span></div><audio src="m/se_subtitle_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>セッション表示</b><span>ピリリリリン</span></div><audio src="m/se_session_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー出る↑</b><span>立ち上がり</span></div><audio src="m/se_timer_in_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー消える↓</b><span>下がる</span></div><audio src="m/se_timer_out_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>タイマー開始</b><span>ピッ</span></div><audio src="m/se_start_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>残り5秒カウント</b><span>ピッ</span></div><audio src="m/se_count5_v2.mp3" controls preload="none"></audio></div>
-</div>
+<h2>⑦ 効果音<span class="chip">KEI担当</span>
+ <small>効果音はKEIが自分で探す/作るとのことなので、あたしは一旦ストップ。必要になったらいつでも言って。</small></h2>
 
-<h2>⑧ 雨の音 3パターン（Sunoサウンド・Loop）<span class="chip ok">できた</span>
- <small>「サウンド」タブのLoopで小雨リラックス系を3パターン。粒（水滴）はありつつ、うるさくない方向。試聴用は短め（本番は継ぎ目なく5分ループにする）。1〜3どれが好きか教えて。</small></h2>
-<div class="wrap">
- <div class="row"><div class="lab"><b>1 ソフト</b><span>軽め小雨</span></div><audio src="m/rain_soft_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>2 コージー</b><span>しっとり</span></div><audio src="m/rain_cozy_v2.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>3 ディープ</b><span>低め＋遠雷</span></div><audio src="m/rain_deep_v2.mp3" controls preload="none"></audio></div>
-</div>
+<h2>⑧ 雨の音 3パターン<span class="chip wait">無料音源を選定中</span>
+ <small>Sunoの雨はイマイチだったので、<b>権利フリー（収益動画OK）の小雨の音をネットから3つDL</b>して並べ直すね。次の更新で差し替えます。</small></h2>
 
 <h2>KEIへ — 見るとこ＆選ぶとこ</h2>
 <div class="flow">
- 1. <b>タイマー①</b>：上の小文字消した＆少し小さく中心寄せ、これでOK？<br>
- 2. <b>休憩②</b>：ゲージ自体に乗る呼吸の光、これならいい感じ？<br>
- 3. <b>吹き出し④</b>：尻尾なし＆暗め＆20案、使う数とOK/直し。<br>
- 4. <b>コマンド⑤</b>：小さく左上に。サイズ感OK？<br>
- 5. <b>効果音⑦</b>：Sunoで作り直した。各音「採用」か「もっと◯◯」を教えて。<br>
- 6. <b>雨⑧</b>：3パターン、1〜3どれが好き？
+ 1. <b>タイマー①</b>：ゲージ10%長く、これでOK？<br>
+ 2. <b>休憩②</b>：光なしのクリーン版、これでいい？<br>
+ 3. <b>字幕③</b>：FOCUS TIME/BREAK TIME＋！の感情、これでいい？<br>
+ 4. <b>吹き出し④</b>：特殊な形＆組み上がる登場アニメ、どう？使う数も。<br>
+ 5. <b>雨⑧</b>：無料音源で3つDLして次の更新で出すね。
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test v8 · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v9 · made with Claude Code · リン</footer>
 </body></html>
