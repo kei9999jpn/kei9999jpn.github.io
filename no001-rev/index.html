@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト v7</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v8</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト v7（リン）</div>
+ <div class="tag">POMODORO No.001 — 修正テスト v8（リン）</div>
  <p class="lead"><b>細かいとこ直したよ！</b>タイマーの上の小文字を消して全体を少し小さく＆中心にまとめた。休憩の呼吸は<b>ゲージ自体に乗る光</b>に作り直し。吹き出しは<b>尻尾なし＝どの位置のキャラでもOK＋もっと暗く</b>。左上コマンドは<b>小さく左上に</b>。応援セリフは20個に。全部クロマキー緑。</p>
 </header>
 
@@ -94,9 +94,24 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
  <small>「いい感じ」って言ってもらえたやつ。静かめD寄り＋音量を均してある。Sunoで作った<b>新しいダークアンビ曲（Rain Code Drifts / Pulse Under Frost など）</b>もできてるから、必要なら差し替え・増量できるよ（全曲4分以上・コロコロ変えない方針で）。</small></h2>
 <div class="wrap big"><audio src="m/bgm_session1_25min.mp3" controls preload="none"></audio></div>
 
-<h2>⑦ 効果音＆雨<span class="chip wait">Suno サウンドで制作中</span>
- <small>教えてくれた通り、Sunoの<b>「サウンド」タブ</b>＝<b>One-Shot で効果音（HUD音・タイマー音・ピッ）</b>、<b>Loop で雨</b>が作れるね。これで効果音と雨（小雨リラックス3パターン）を作って、ここに並べて聴かせるね。安っぽい合成のやつは廃止。</small></h2>
-<p class="note">※準備中。次の更新で効果音セットと雨3パターンを追加します。</p>
+<h2>⑦ 効果音（Sunoサウンド・One-Shot）<span class="chip ok">できた</span>
+ <small>Sunoの「サウンド」タブ（One-Shot）で作り直した。前の安っぽい合成は廃止。各音を試聴して「これ採用」「もっと◯◯」を教えて。複数案ほしい音は言ってくれたら追加で作るよ。</small></h2>
+<div class="wrap">
+ <div class="row"><div class="lab"><b>字幕が出る</b><span>デジタルtick</span></div><audio src="m/se_subtitle_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>セッション表示</b><span>ピリリリリン</span></div><audio src="m/se_session_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>タイマー出る↑</b><span>立ち上がり</span></div><audio src="m/se_timer_in_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>タイマー消える↓</b><span>下がる</span></div><audio src="m/se_timer_out_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>タイマー開始</b><span>ピッ</span></div><audio src="m/se_start_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>残り5秒カウント</b><span>ピッ</span></div><audio src="m/se_count5_v2.mp3" controls preload="none"></audio></div>
+</div>
+
+<h2>⑧ 雨の音 3パターン（Sunoサウンド・Loop）<span class="chip ok">できた</span>
+ <small>「サウンド」タブのLoopで小雨リラックス系を3パターン。粒（水滴）はありつつ、うるさくない方向。試聴用は短め（本番は継ぎ目なく5分ループにする）。1〜3どれが好きか教えて。</small></h2>
+<div class="wrap">
+ <div class="row"><div class="lab"><b>1 ソフト</b><span>軽め小雨</span></div><audio src="m/rain_soft_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>2 コージー</b><span>しっとり</span></div><audio src="m/rain_cozy_v2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>3 ディープ</b><span>低め＋遠雷</span></div><audio src="m/rain_deep_v2.mp3" controls preload="none"></audio></div>
+</div>
 
 <h2>KEIへ — 見るとこ＆選ぶとこ</h2>
 <div class="flow">
@@ -104,8 +119,9 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
  2. <b>休憩②</b>：ゲージ自体に乗る呼吸の光、これならいい感じ？<br>
  3. <b>吹き出し④</b>：尻尾なし＆暗め＆20案、使う数とOK/直し。<br>
  4. <b>コマンド⑤</b>：小さく左上に。サイズ感OK？<br>
- 5. <b>効果音＆雨⑦</b>：Sunoのサウンド（One-Shot/Loop）で作って次の更新で並べるね。
+ 5. <b>効果音⑦</b>：Sunoで作り直した。各音「採用」か「もっと◯◯」を教えて。<br>
+ 6. <b>雨⑧</b>：3パターン、1〜3どれが好き？
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test v7 · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v8 · made with Claude Code · リン</footer>
 </body></html>
