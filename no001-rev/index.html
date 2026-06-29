@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト v5</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v6</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -38,8 +38,8 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト v5（リン）</div>
- <p class="lead"><b>直したよ！</b>タイマーは「数字が0→25:00にカウントアップ＋空枠が完成→25分かけてゲージが溜まる」に修正。<b>グロウを抑えて左上コマンドと同じダークなターミナル世界観に統一</b>。字幕はシンプルに戻して英中ネイティブ確認済み。励まし吹き出しHUDも試作したよ。全部クロマキー緑。</p>
+ <div class="tag">POMODORO No.001 — 修正テスト v6（リン）</div>
+ <p class="lead"><b>さらに直したよ！</b>タイマーは<b>3秒で完成→3秒待ってからスタート</b>に。休憩リングは<b>深呼吸する光のアニメ</b>に。吹き出しは<b>薄い黒＋角張ったデジタル枠</b>に作り直し、セリフも応援系に。左上コマンドも映像で出した。全部クロマキー緑。</p>
 </header>
 
 <div class="flow">
@@ -47,11 +47,11 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 </div>
 
 <h2>① 25分タイマー（FOCUS）<span class="chip">直した</span>
- <small>イントロ＝<b>上の数字が0:00→25:00にカウントアップ</b>しながら<b>下の空ゲージの枠が5秒で完成</b>。→そこから25:00をカウントダウン、<b>ゲージは25分かけて空→満タンに溜まる（進捗）</b>。<b>グロウ控えめ・ダークなターミナル調</b>（左上コマンド文字と世界観統一）。数字は等幅で固定（ピクピクなし）。終わり方は据え置き。※プレビュー早送り。</small></h2>
+ <small>イントロ＝<b>約3秒で数字が0:00→25:00にカウントアップ＆空ゲージの枠が完成</b>→<b>完成状態で約3秒待つ</b>→そこからカウントダウン開始、<b>ゲージは25分かけて空→満タンに溜まる（進捗）</b>。グロウ控えめ・ダークなターミナル調。数字は等幅で固定。終わり方は据え置き。※プレビュー早送り。</small></h2>
 <div class="wrap"><video src="m/timer_v4_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（クロマキー緑）</div></div>
 
 <h2>② 5分休憩タイマー（BREAK）<span class="chip">直した</span>
- <small>円形。リングは5秒で満タン→そこから減っていく。上は BREAK のみ。下は休憩アクション5パターン（本番は1分に1個）。同じダークターミナル調に統一。</small></h2>
+ <small>円形。リングは5秒で満タン→減っていく。上は BREAK のみ（上の小さい文字は消した）。<b>深呼吸に合わせた光のアニメ＝薄い光のゆっくり点滅＋小さな光のパーティクル</b>を追加（タイマーが呼吸してるみたいに／一緒に深呼吸できる）。下は休憩アクション5パターン（本番は1分に1個）。</small></h2>
 <div class="wrap"><video src="m/timer_v4_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（クロマキー緑）</div></div>
 
 <h2>③ 字幕<span class="chip ok">シンプルに戻した</span>
@@ -59,38 +59,40 @@ footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spa
 <div class="wrap"><video src="m/subtitle_v5.mp4" autoplay loop muted playsinline controls></video><div class="cap">字幕（英メイン＋中サブ・確認済み）</div></div>
 <p class="note">採用文言：LET’S FOCUS TOGETHER / FOCUS·25MIN / BREAK·5MIN / WELL DONE / THANKS FOR WATCHING / SEE YOU NEXT TIME（中国語＝一起专注吧／专注25分钟／休息5分钟／辛苦了／感谢观看／下次见）。増減OK。</p>
 
-<h2>④ 励まし吹き出しHUD（新規・テスト1個）<span class="chip new">採用</span>
- <small>VRChatキャラの口元から出るチャット吹き出し風。HUD枠＋英語＋下に中国語小。本番は4セッション中<b>10分に1回くらい</b>、S1とS4で言葉を変える。まずは枠とセリフの雰囲気を見て！（位置は後でキャラに合わせて調整できる）</small></h2>
-<div class="wrap"><video src="m/bubble_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">吹き出しHUD（テスト：10 MIN LEFT · KEEP GOING）</div></div>
+<h2>④ 励まし吹き出しHUD（作り直し）<span class="chip new">応援セリフ</span>
+ <small>勘違い直したよ＝これは<b>背景にいるVRChatキャラが、集中してる視聴者に声をかける応援の吹き出し</b>。枠は<b>角張ったデジタルHUD（角を斜めにカット）＋薄い黒の半透明＋中に薄いデジタル模様</b>に作り直した。本番は4セッション中10分に1回くらい、S1〜S4で言葉を変える。位置はあとでキャラに合わせて調整できるよ。</small></h2>
+<div class="wrap"><video src="m/bubble_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">吹き出しHUD（テスト：YOU GOT THIS · 你可以的）</div></div>
 <div class="lines"><table>
- <tr><td class="n">01</td><td class="en">JUST STARTED · STAY WITH IT</td><td class="zh">刚开始，跟上节奏</td><td class="s">S1 序盤</td></tr>
- <tr><td class="n">02</td><td class="en">SETTLE IN. BREATHE.</td><td class="zh">坐稳，深呼吸</td><td class="s">S1 序盤</td></tr>
- <tr><td class="n">03</td><td class="en">FOUND YOUR RHYTHM</td><td class="zh">进入状态了</td><td class="s">S1–S2</td></tr>
- <tr><td class="n">04</td><td class="en">HALFWAY THERE</td><td class="zh">过半了</td><td class="s">S2 中盤</td></tr>
- <tr><td class="n">05</td><td class="en">EYES ON THE TASK</td><td class="zh">专注手上的事</td><td class="s">S2–S3</td></tr>
- <tr><td class="n">06</td><td class="en">DON’T DRIFT. REFOCUS.</td><td class="zh">别走神，拉回来</td><td class="s">S2–S3</td></tr>
- <tr><td class="n">07</td><td class="en">STILL GOING STRONG</td><td class="zh">状态依旧很稳</td><td class="s">S3</td></tr>
- <tr><td class="n">08</td><td class="en">ALMOST THERE</td><td class="zh">快到了</td><td class="s">S3–S4</td></tr>
- <tr><td class="n">09</td><td class="en">FINAL STRETCH</td><td class="zh">最后冲刺</td><td class="s">S4 終盤</td></tr>
- <tr><td class="n">10</td><td class="en">10 MIN LEFT · KEEP GOING</td><td class="zh">还剩10分钟，加油</td><td class="s">S4 ラスト</td></tr>
+ <tr><td class="n">01</td><td class="en">STAY FOCUSED</td><td class="zh">保持专注</td><td class="s">いつでも</td></tr>
+ <tr><td class="n">02</td><td class="en">YOU GOT THIS</td><td class="zh">你可以的</td><td class="s">いつでも</td></tr>
+ <tr><td class="n">03</td><td class="en">KEEP GOING</td><td class="zh">继续加油</td><td class="s">いつでも</td></tr>
+ <tr><td class="n">04</td><td class="en">YOU’RE DOING GREAT</td><td class="zh">你做得很好</td><td class="s">中盤</td></tr>
+ <tr><td class="n">05</td><td class="en">DON’T GIVE UP</td><td class="zh">别放弃</td><td class="s">中盤</td></tr>
+ <tr><td class="n">06</td><td class="en">ONE STEP AT A TIME</td><td class="zh">一步一步来</td><td class="s">中盤</td></tr>
+ <tr><td class="n">07</td><td class="en">BELIEVE IN YOURSELF</td><td class="zh">相信自己</td><td class="s">中盤</td></tr>
+ <tr><td class="n">08</td><td class="en">STAY WITH IT</td><td class="zh">坚持住</td><td class="s">後半</td></tr>
+ <tr><td class="n">09</td><td class="en">ALMOST THERE</td><td class="zh">快完成了</td><td class="s">後半</td></tr>
+ <tr><td class="n">10</td><td class="en">10 MIN LEFT · KEEP IT UP</td><td class="zh">还剩10分钟，加油</td><td class="s">S4 ラスト</td></tr>
 </table></div>
-<p class="note">この10個から使う数（5個くらい？）と、枠のデザイン・セリフの雰囲気、OK/直しを教えて。</p>
+<p class="note">応援系で10個。使う数（5個くらい？）と、枠デザイン・セリフのOK/直しを教えて。英中とも自然か確認済み。</p>
 
-<h2>⑤ 左上のコマンド文字<span class="chip ok">変更なし</span>
- <small>「kei@pomodoro:~$ focus --25min --session 01 / 04」はそのまま。タイマーもこの世界観に合わせて作り直したよ。</small></h2>
+<h2>⑤ 左上のコマンド文字（映像で確認用）<span class="chip ok">変更なし</span>
+ <small>「kei@pomodoro:~$ focus --25min --session 01 / 04」。タイマーとの相性が見たいとのことだったので映像で出したよ。タイマーもこの世界観（同じ色・同じターミナル感）に合わせてある。本番は session 01〜04 の4本。</small></h2>
+<div class="wrap"><video src="m/cmdline_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">左上コマンド（クロマキー緑）</div></div>
 
 <h2>⑥ BGM／効果音／雨<span class="chip wait">Suno作業中</span>
  <small>Sunoのデバッグブラウザが繋がったので、これから本格的に作るよ。<b>BGM＝ダークで静かめ・落ち着いた作業用。全曲4分以上・コロコロ変えない・派手な曲は外す</b>。効果音は安っぽいの全部やり直し、雨は小雨リラックス3パターン。できたらこのページに足していくね。<br>※前回の暫定BGMベッドは参考に残してあるけど、これは作り直す前提。</small></h2>
 <div class="wrap big"><audio src="m/bgm_session1_25min.mp3" controls preload="none"></audio>
  <p class="note">（参考・暫定）これは前の曲で組んだやつ。Sunoで静かめに作り直すよ。</p></div>
 
-<h2>朝のKEIへ — 見るとこ＆選ぶとこ</h2>
+<h2>KEIへ — 見るとこ＆選ぶとこ</h2>
 <div class="flow">
- 1. <b>タイマー①②</b>：イントロ（数字カウントアップ＋空枠完成→ゲージ充填）とダークな雰囲気、これでOK？<br>
- 2. <b>字幕③</b>：シンプルに戻したやつ、これでいい？文言の増減ある？<br>
- 3. <b>吹き出し④</b>：枠のデザインとセリフ10案、使う数とOK/直し。<br>
- 4. <b>BGM⑥</b>：Sunoで静かめに作り直すね。できたら追記する。
+ 1. <b>タイマー①</b>：3秒で完成→3秒待つ→スタート、のタイミングOK？<br>
+ 2. <b>休憩②</b>：呼吸する光のアニメ、いい感じ？（強さ調整できるよ）<br>
+ 3. <b>吹き出し④</b>：角張ったデジタル枠＆応援セリフ10案、使う数とOK/直し。<br>
+ 4. <b>コマンド⑤</b>：タイマーとの相性どう？<br>
+ 5. <b>BGM⑥</b>：Sunoが曲をうまく取れてないみたい→<b>あの黒いChromeのワークスペースに新曲ができてるか見てくれる？</b>直したらここに足すね。
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test v5 · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v6 · made with Claude Code · リン</footer>
 </body></html>
