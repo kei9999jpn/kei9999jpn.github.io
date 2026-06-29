@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberLove Pomodoro — Material Showcase</title>
+<meta property="og:title" content="CyberLove Cyberpunk Pomodoro — overlay materials">
+<meta property="og:description" content="Study-with-me cyberpunk pomodoro overlay set: HUD timers, typing subtitles, encouragement chat HUD, terminal session line. Made with Claude Code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#05030a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05030a;color:#eee;font-family:'Rajdhani','Noto Sans JP',sans-serif;min-height:100vh;overflow-x:hidden}
+/* loader */
+#loader{position:fixed;inset:0;z-index:50;background:radial-gradient(120% 90% at 50% 30%,#160b22,#05030a 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s}
+#loader.gone{opacity:0;pointer-events:none}
+.lt{font-family:'Share Tech Mono',monospace;color:var(--cyan);letter-spacing:.2em;font-size:13px;margin-bottom:14px;text-shadow:0 0 10px rgba(0,229,255,.7)}
+.bar{width:min(72vw,420px);height:10px;border:1px solid #2a1d3a;border-radius:6px;overflow:hidden;background:#0c0716}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--pink));box-shadow:0 0 14px rgba(0,229,255,.7);transition:width .15s}
+.lp{font-family:'Share Tech Mono',monospace;color:#8d83a3;font-size:12px;margin-top:10px}
+/* content */
+#content{opacity:0;transition:opacity .8s}
+#content.show{opacity:1}
+header{text-align:center;padding:54px 18px 8px}
+.brand{font-family:'Zen Dots';font-size:clamp(28px,8vw,52px);color:#fff;text-shadow:0 0 26px rgba(255,45,134,.85)}
+.brand i{color:var(--pink);font-style:normal}
+.tag{font-family:'Orbitron';font-weight:800;letter-spacing:.26em;color:var(--cyan);margin-top:10px;font-size:clamp(11px,3vw,14px);text-shadow:0 0 12px rgba(0,229,255,.8)}
+.sub{max-width:680px;margin:14px auto 0;padding:0 20px;color:#cfc8da;line-height:1.7;font-size:15px}
+.grid{max-width:1040px;margin:34px auto 0;padding:0 18px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:linear-gradient(180deg,#0e0a18,#0a0710);border:1px solid #2a1d3a;border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(0,229,255,.10)}
+.card video{width:100%;display:block;background:#00b140}
+.card .b{padding:13px 16px}
+.card h3{font-family:'Orbitron';font-weight:800;font-size:14px;color:#fff;letter-spacing:.04em}
+.card p{color:#9a8fb0;font-size:13px;margin-top:5px;line-height:1.6}
+.card .n{font-family:'Share Tech Mono',monospace;color:var(--cyan);font-size:11px}
+.note{max-width:1040px;margin:26px auto 0;padding:0 22px;color:#8d83a3;font-size:13px;line-height:1.7;text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px auto 0;max-width:760px;padding:0 18px}
+.chips span{font-family:'Share Tech Mono',monospace;font-size:11px;color:#cfeeff;border:1px solid #2a3d4a;border-radius:20px;padding:4px 11px;background:rgba(0,229,255,.06)}
+footer{text-align:center;color:#6a5d7e;margin:46px 0 70px;font-size:12px;letter-spacing:.1em;font-family:'Share Tech Mono',monospace}
+</style></head><body>
+
+<div id="loader">
+ <div class="lt">// LOADING CYBERLOVE POMODORO ASSETS</div>
+ <div class="bar"><i id="barfill"></i></div>
+ <div class="lp" id="lpct">0%</div>
+</div>
+
+<div id="content">
+<header>
+ <div class="brand">Cyber<i>Love</i></div>
+ <div class="tag">CYBERPUNK POMODORO · STUDY WITH ME · 素材ショーケース</div>
+ <p class="sub">VRChat背景に重ねる「サイバーパンク・ポモドーロ」オーバーレイ素材一式。全部クロマキー緑で書き出し、ターミナル／HUDの世界観で統一。<b style="color:#fff">Made with Claude Code.</b></p>
+ <div class="chips"><span>HUD TIMER</span><span>TYPING SUBTITLE</span><span>CHAT HUD</span><span>TERMINAL LINE</span><span>CHROMA KEY</span><span>25 / 5 POMODORO</span></div>
+</header>
+
+<div class="grid">
+ <div class="card"><video src="m/timer_v4_focus.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">01 · FOCUS</div><h3>25分 集中タイマー</h3><p>数字が0→25:00にチャージ＆枠が完成→25分かけてゲージが溜まる。終わりは点滅→DONE→ディゾルブ。</p></div></div>
+ <div class="card"><video src="m/timer_v4_break.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">02 · BREAK</div><h3>5分 休憩タイマー</h3><p>円形リングが減っていく。休憩アクション（STRETCH / DRINK WATER …）が1分ごとに切り替わる。</p></div></div>
+ <div class="card"><video src="m/subtitle_v5.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">03 · SUBTITLE</div><h3>タイピング字幕</h3><p>英語が大きく中央にタイピングで出現、下に中国語をフェード表示。最低限・自然な言葉。</p></div></div>
+ <div class="card"><video src="m/bubble_sample.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">04 · CHAT HUD</div><h3>励まし吹き出しHUD</h3><p>背景キャラが視聴者に声をかける通信HUD。応援セリフ20案、英語＋中国語。</p></div></div>
+ <div class="card"><video src="m/cmdline_v1.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">05 · TERMINAL</div><h3>左上コマンドライン</h3><p>kei@pomodoro:~$ focus --25min --session 01 / 04。セッション進捗をターミナル風に表示。</p></div></div>
+ <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:220px"><div class="b" style="text-align:center"><div class="n">06 · AUDIO</div><h3>BGM ／ 雨 ／ 効果音</h3><p>ダーク・アンビエントの作業用BGM（セッション別4パターン）＋小雨アンビ＋HUD効果音。<br>※音は本編で。</p></div></div>
+</div>
+
+<p class="note">これらを VRChat の配信背景に重ねて「2時間集中ポモドーロ」動画に。プレビューは早送り・クロマキー緑のまま。</p>
+<footer>// CyberLove · cyberpunk pomodoro No.001 · made with Claude Code</footer>
+</div>
+
+<script>
+// loader: count 0->100 then reveal
+var f=document.getElementById('barfill'), p=document.getElementById('lpct'), L=document.getElementById('loader'), C=document.getElementById('content');
+var v=0; var iv=setInterval(function(){ v+=Math.max(1,Math.round((100-v)*0.08)); if(v>=100){v=100;clearInterval(iv); setTimeout(function(){L.classList.add('gone'); C.classList.add('show');},420);} f.style.width=v+'%'; p.textContent=v+'%'; },70);
+</script>
+</body></html>
