@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CyberLove — ポモドーロ No.001 修正テスト v4</title>
+<title>CyberLove — ポモドーロ No.001 修正テスト v5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Zen+Dots&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@ header{text-align:center;padding:40px 18px 18px}
 .brand{font-family:'Zen Dots';font-size:clamp(26px,7vw,44px);color:#fff;text-shadow:0 0 22px rgba(255,45,134,.8)}
 .brand i{color:var(--pink);font-style:normal}
 .tag{font-family:'Orbitron';font-weight:700;letter-spacing:.28em;color:var(--cyan);margin-top:9px;font-size:clamp(11px,3vw,14px);text-shadow:0 0 12px rgba(0,229,255,.8)}
-.lead{max-width:780px;margin:16px auto 0;padding:0 18px;color:#cfc8da;line-height:1.7;font-size:15px}
+.lead{max-width:790px;margin:16px auto 0;padding:0 18px;color:#cfc8da;line-height:1.7;font-size:15px}
 .lead b{color:#fff}
 h2{font-family:'Orbitron';font-weight:900;font-size:clamp(16px,4.4vw,21px);color:#fff;margin:48px auto 6px;max-width:920px;padding:0 18px;letter-spacing:.04em}
 h2 small{font-family:'Rajdhani';font-weight:600;color:#9a8fb0;display:block;font-size:13.5px;margin-top:6px;line-height:1.65}
@@ -22,94 +22,75 @@ h2 small{font-family:'Rajdhani';font-weight:600;color:#9a8fb0;display:block;font
 .two video,.wrap video{width:100%;border-radius:14px;border:1px solid #2a1d3a;box-shadow:0 10px 36px rgba(0,229,255,.14);display:block;background:#0a0710;margin-top:12px}
 .cap{font-family:'Orbitron';font-weight:700;font-size:12px;color:#fff;letter-spacing:.04em;margin-top:6px;text-align:center}
 .chip{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:11px;color:#06040b;background:var(--cyan);border-radius:20px;padding:2px 10px;margin-left:8px;vertical-align:middle;letter-spacing:.06em}
-.chip.todo{background:#ffd36b}.chip.ok{background:#7CFC9A}.chip.wait{background:#c8a6ff}
+.chip.todo{background:#ffd36b}.chip.ok{background:#7CFC9A}.chip.wait{background:#c8a6ff}.chip.new{background:#ff2d86;color:#fff}
 .flow{max-width:920px;margin:14px auto 0;padding:14px 18px;background:rgba(16,10,24,.6);border:1px solid #2a1d3a;border-radius:12px;font-size:13.5px;color:#cfc8da;line-height:1.9}
 .flow b{color:var(--cyan)}
-.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #2a1d3a;border-radius:12px;padding:10px 14px;margin-top:10px}
-.row .lab{flex:0 0 auto;min-width:150px}
-.row .lab b{font-family:'Orbitron';font-weight:700;font-size:13px;color:#fff;letter-spacing:.03em;display:block}
-.row .lab span{font-size:12.5px;color:#9a8fb0}
-.row .ab{flex:1 1 auto;display:flex;flex-direction:column;gap:6px}
-.row .ab .one{display:flex;align-items:center;gap:8px}
-.row .ab .one i{font-family:'Share Tech Mono',monospace;font-style:normal;color:var(--cyan);font-size:12px;flex:0 0 22px}
-.row audio{flex:1 1 auto;width:100%;height:34px}
 .big audio{width:100%;height:40px;margin-top:10px}
 .note{max-width:920px;margin:9px auto 0;padding:0 20px;color:#8d83a3;font-size:13px;line-height:1.7}
-.adv{max-width:920px;margin:14px auto 0;padding:0 18px}
-.adv .box{background:rgba(16,10,24,.7);border:1px solid #2a1d3a;border-left:3px solid var(--pink);border-radius:12px;padding:15px 18px;margin-top:12px;line-height:1.85;font-size:14px;color:#d7d0e2}
-.adv .box b{color:#fff}.adv .box u{color:var(--cyan);text-decoration:none}
-.tbl{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
-.tbl td{border-bottom:1px solid #261a35;padding:7px 8px;vertical-align:top}
-.tbl td:first-child{color:var(--cyan);white-space:nowrap;font-family:'Share Tech Mono',monospace}
+.lines{max-width:920px;margin:12px auto 0;padding:0 18px}
+.lines table{width:100%;border-collapse:collapse;font-size:14px}
+.lines td{border-bottom:1px solid #261a35;padding:8px 10px;vertical-align:top}
+.lines td.n{color:var(--cyan);font-family:'Share Tech Mono',monospace;white-space:nowrap;width:34px}
+.lines td.en{color:#fff;font-weight:700}
+.lines td.zh{color:#bfe9ff}
+.lines td.s{color:#9a8fb0;font-size:12px;white-space:nowrap}
 footer{text-align:center;color:#6a5d7e;margin-top:54px;font-size:12px;letter-spacing:.1em;font-family:'Share Tech Mono',monospace}
 </style></head><body>
 <header>
  <div class="brand">Cyber<i>Love</i></div>
- <div class="tag">POMODORO No.001 — 修正テスト v4（リン）</div>
- <p class="lead"><b>フィードバック反映したよ！</b>タイマーはスタンバイの数字カウントを廃止して<b>ゲージがピョーンと出て5秒で満タン→そこからスタート</b>に。数字のピクピク（横幅変動）も等幅にして直した。休憩は5分割の文字、字幕は提案版も用意。全部クロマキー緑。— リン</p>
+ <div class="tag">POMODORO No.001 — 修正テスト v5（リン）</div>
+ <p class="lead"><b>直したよ！</b>タイマーは「数字が0→25:00にカウントアップ＋空枠が完成→25分かけてゲージが溜まる」に修正。<b>グロウを抑えて左上コマンドと同じダークなターミナル世界観に統一</b>。字幕はシンプルに戻して英中ネイティブ確認済み。励まし吹き出しHUDも試作したよ。全部クロマキー緑。</p>
 </header>
 
 <div class="flow">
- <b>動画全体の流れ</b>：字幕「集中しよ」→ <b>ゲージ満タン→5,4,3,2,1の音で 25分スタート</b> → 終わって少しして 5分休憩タイマー（休憩中は<b>雨の音だけ</b>・BGMなし）→ これを4回 → 締めの字幕。
+ <b>動画全体の流れ</b>：字幕「一緒に専注しよ」→ <b>5,4,3,2,1の音で 25分スタート</b> → 終わって少しして 5分休憩（休憩中は<b>雨の音だけ</b>）→ これを4回。<b>10分に1回くらい励まし吹き出し</b>を出す → 締めの字幕。
 </div>
 
 <h2>① 25分タイマー（FOCUS）<span class="chip">直した</span>
- <small>スタンバイの 5,4,3,2,1 の<b>数字は廃止</b>。代わりに<b>空のゲージが下からピョーンと出て、5秒で0→満タンに充填（STANDBY）</b>→満タンで止まってからスタート→25:00 がカウントダウン（ゲージは満タン→0へ減る）。<b>数字は等幅にして横幅が変わらない（ピクピク解消）</b>。終わり方（残り5秒点滅→DONE→消える）は据え置き。※プレビューは早送り。</small></h2>
+ <small>イントロ＝<b>上の数字が0:00→25:00にカウントアップ</b>しながら<b>下の空ゲージの枠が5秒で完成</b>。→そこから25:00をカウントダウン、<b>ゲージは25分かけて空→満タンに溜まる（進捗）</b>。<b>グロウ控えめ・ダークなターミナル調</b>（左上コマンド文字と世界観統一）。数字は等幅で固定（ピクピクなし）。終わり方は据え置き。※プレビュー早送り。</small></h2>
 <div class="wrap"><video src="m/timer_v4_focus.mp4" autoplay loop muted playsinline controls></video><div class="cap">25分 集中（クロマキー緑）</div></div>
 
 <h2>② 5分休憩タイマー（BREAK）<span class="chip">直した</span>
- <small>円形のまま。リングも<b>5秒で0→満タンに充填→そこから減っていく</b>。上は <b>BREAK</b> だけ。下の文字は<b>休憩アクション5パターン</b>（STRETCH／DRINK WATER／REST YOUR EYES／DEEP BREATH／ROLL SHOULDERS）が<b>本番は1分に1個ずつ</b>タイピングで出て切り替わる。数字も等幅。</small></h2>
+ <small>円形。リングは5秒で満タン→そこから減っていく。上は BREAK のみ。下は休憩アクション5パターン（本番は1分に1個）。同じダークターミナル調に統一。</small></h2>
 <div class="wrap"><video src="m/timer_v4_break.mp4" autoplay loop muted playsinline controls></video><div class="cap">5分 休憩（クロマキー緑）</div></div>
 
-<h2>③ 字幕<span class="chip ok">雰囲気そのまま</span>
- <small>「雰囲気めっちゃいい」とのことなので<b>A=現行はそのまま</b>。＋<b>B=言葉を少し足して中国語をもっと自然にした提案版</b>も作った。どっちが良いか、混ぜたいか教えて。</small></h2>
-<div class="two">
- <div><video src="m/subtitle_v4.mp4" autoplay loop muted playsinline controls></video><div class="cap">A 現行（最低限・シンプル）</div></div>
- <div><video src="m/subtitle_v4b.mp4" autoplay loop muted playsinline controls></video><div class="cap">B 提案（言葉追加＋中国語を自然に）</div></div>
-</div>
-<p class="note">B案の文言：WELCOME BACK／PHONE AWAY・DEEP WORK／STRETCH &amp; BREATHE などを追加。中国語も「谢谢观看，下次见」「辛苦了，做得很棒！」みたいに少し厚みを持たせたよ。</p>
+<h2>③ 字幕<span class="chip ok">シンプルに戻した</span>
+ <small>最低限・ロボHUD調にシンプル化。<b>英語=大きく中央でタイピング</b>、<b>中国語=下に小さく、タイピングせずフェードで出す</b>。文言は<b>英語・中国語ともネイティブ視点で自然か確認済み</b>（辛苦了／感谢观看 等）。</small></h2>
+<div class="wrap"><video src="m/subtitle_v5.mp4" autoplay loop muted playsinline controls></video><div class="cap">字幕（英メイン＋中サブ・確認済み）</div></div>
+<p class="note">採用文言：LET’S FOCUS TOGETHER / FOCUS·25MIN / BREAK·5MIN / WELL DONE / THANKS FOR WATCHING / SEE YOU NEXT TIME（中国語＝一起专注吧／专注25分钟／休息5分钟／辛苦了／感谢观看／下次见）。増減OK。</p>
 
-<h2>④ 左上のコマンド文字<span class="chip ok">変更なし</span>
- <small>「kei@pomodoro:~$ focus --25min --session 01 / 04」はそのままでOKだったので触ってないよ。</small></h2>
+<h2>④ 励まし吹き出しHUD（新規・テスト1個）<span class="chip new">採用</span>
+ <small>VRChatキャラの口元から出るチャット吹き出し風。HUD枠＋英語＋下に中国語小。本番は4セッション中<b>10分に1回くらい</b>、S1とS4で言葉を変える。まずは枠とセリフの雰囲気を見て！（位置は後でキャラに合わせて調整できる）</small></h2>
+<div class="wrap"><video src="m/bubble_v1.mp4" autoplay loop muted playsinline controls></video><div class="cap">吹き出しHUD（テスト：10 MIN LEFT · KEEP GOING）</div></div>
+<div class="lines"><table>
+ <tr><td class="n">01</td><td class="en">JUST STARTED · STAY WITH IT</td><td class="zh">刚开始，跟上节奏</td><td class="s">S1 序盤</td></tr>
+ <tr><td class="n">02</td><td class="en">SETTLE IN. BREATHE.</td><td class="zh">坐稳，深呼吸</td><td class="s">S1 序盤</td></tr>
+ <tr><td class="n">03</td><td class="en">FOUND YOUR RHYTHM</td><td class="zh">进入状态了</td><td class="s">S1–S2</td></tr>
+ <tr><td class="n">04</td><td class="en">HALFWAY THERE</td><td class="zh">过半了</td><td class="s">S2 中盤</td></tr>
+ <tr><td class="n">05</td><td class="en">EYES ON THE TASK</td><td class="zh">专注手上的事</td><td class="s">S2–S3</td></tr>
+ <tr><td class="n">06</td><td class="en">DON’T DRIFT. REFOCUS.</td><td class="zh">别走神，拉回来</td><td class="s">S2–S3</td></tr>
+ <tr><td class="n">07</td><td class="en">STILL GOING STRONG</td><td class="zh">状态依旧很稳</td><td class="s">S3</td></tr>
+ <tr><td class="n">08</td><td class="en">ALMOST THERE</td><td class="zh">快到了</td><td class="s">S3–S4</td></tr>
+ <tr><td class="n">09</td><td class="en">FINAL STRETCH</td><td class="zh">最后冲刺</td><td class="s">S4 終盤</td></tr>
+ <tr><td class="n">10</td><td class="en">10 MIN LEFT · KEEP GOING</td><td class="zh">还剩10分钟，加油</td><td class="s">S4 ラスト</td></tr>
+</table></div>
+<p class="note">この10個から使う数（5個くらい？）と、枠のデザイン・セリフの雰囲気、OK/直しを教えて。</p>
 
-<h2>⑤ BGM セッション1（25分ベッド）<span class="chip">音量直した</span>
- <small><b>8〜10分の派手すぎた曲を外して</b>、静かめD寄りで組み直し＋<b>全体の音量をならした</b>（バカデカい所を解消）。それ以外は良いとのことだったので路線維持。<br>※新曲のSuno生成は<b>ブラウザが繋がったら</b>やる（下の注意参照）。「AとB多めにしない方がいい・静かめで落ち着いたトーン」も了解。</small></h2>
+<h2>⑤ 左上のコマンド文字<span class="chip ok">変更なし</span>
+ <small>「kei@pomodoro:~$ focus --25min --session 01 / 04」はそのまま。タイマーもこの世界観に合わせて作り直したよ。</small></h2>
+
+<h2>⑥ BGM／効果音／雨<span class="chip wait">Suno作業中</span>
+ <small>Sunoのデバッグブラウザが繋がったので、これから本格的に作るよ。<b>BGM＝ダークで静かめ・落ち着いた作業用。全曲4分以上・コロコロ変えない・派手な曲は外す</b>。効果音は安っぽいの全部やり直し、雨は小雨リラックス3パターン。できたらこのページに足していくね。<br>※前回の暫定BGMベッドは参考に残してあるけど、これは作り直す前提。</small></h2>
 <div class="wrap big"><audio src="m/bgm_session1_25min.mp3" controls preload="none"></audio>
- <p class="note">8〜10分あたり、もう派手じゃないか確認してみて。</p></div>
-
-<h2>⑥ 効果音<span class="chip wait">Suno待ち</span>
- <small>正直ごめん、今の効果音は<b>あたしが合成した安っぽいやつ</b>でタイマーに合ってないよね。<b>全部Sunoかフリー音源で作り直す</b>。下は参考に残してるだけ（採用しない前提）。</small></h2>
-<div class="wrap">
- <div class="row"><div class="lab"><b>（参考）残り5秒</b><span>作り直し対象</span></div><audio src="m/se_count5_1.mp3" controls preload="none"></audio></div>
- <div class="row"><div class="lab"><b>（参考）タイマー開始</b><span>作り直し対象</span></div><audio src="m/se_start_1.mp3" controls preload="none"></audio></div>
-</div>
-
-<h2>⑦ 雨の音<span class="chip wait">Suno待ち</span>
- <small>粒（水滴）の音が邪魔とのことなので、<b>Sunoで「小雨・リラックスできる雨」を3パターン作り直す</b>。これもブラウザ繋がったらすぐやる。</small></h2>
-
-<h2>⑧ リンから：ポモドーロ動画 構成アドバイス</h2>
-<div class="adv"><div class="box">
- <b>「足りてないかも」と思った所＆あると良い言葉</b>
- <table class="tbl">
-  <tr><td>導入</td><td><b>挨拶＋今日のゴール提示</b>。「一緒に2時間集中しよう」みたいに<u>"一緒に勉強する相手"感</u>を出すと滞在時間が伸びる。</td></tr>
-  <tr><td>準備</td><td>開始前に<b>「スマホは別の部屋へ」「飲み物用意した?」</b>の一言。集中チャンネルの定番で効く。</td></tr>
-  <tr><td>進捗</td><td><b>SESSION 01 / 04 の表示</b>（左上コマンドで実現済）。今どこか分かると途中離脱が減る。</td></tr>
-  <tr><td>中盤</td><td>各セッション中盤に<b>励まし1回</b>（「あと10分、その調子」）。喋らない代わりにテロップで。</td></tr>
-  <tr><td>合図</td><td>各セッション開始の<b>5,4,3,2,1カウント＋音</b>（実装済）。区切りが気持ちいい。</td></tr>
-  <tr><td>締め</td><td><b>ねぎらい＋次回予告＋チャンネル誘導</b>。「お疲れさま／また一緒にやろう／他の動画もどうぞ」。</td></tr>
-  <tr><td>概要欄</td><td>タイムスタンプ（各セッション/休憩）とBGM/雨の説明を載せる前提で構成しておくと親切。</td></tr>
-  <tr><td>原則</td><td>集中型は<b>喋りすぎNG・テロップ最小</b>が好まれる。今の「最低限」方針は正解。足すなら導入と締めだけ厚くするのがおすすめ。</td></tr>
- </table>
- <b style="display:block;margin-top:10px">結論</b>：今の字幕は十分。<u>足すなら「導入の挨拶＋ゴール」「準備の一言」「締めの次回予告」</u>の3つだけ。中国語はB案くらいの自然さがちょうどいいと思う。
-</div></div>
+ <p class="note">（参考・暫定）これは前の曲で組んだやつ。Sunoで静かめに作り直すよ。</p></div>
 
 <h2>朝のKEIへ — 見るとこ＆選ぶとこ</h2>
 <div class="flow">
- 1. <b>タイマー①②</b>：ゲージのピョーン→満タン→スタート、数字ピクピク解消、これでOK？<br>
- 2. <b>字幕③</b>：A（現行）かB（言葉追加版）かミックスか。<br>
- 3. <b>BGM⑤</b>：8〜10分の音量、もう大丈夫そう？<br>
- 4. <b>効果音⑥・雨⑦</b>：Sunoで作り直すので、<b>Sunoログイン済みChromeをデバッグ起動して「繋いだ」と教えて</b>。そしたら効果音・雨・新BGM（ダーク静かめ＋30分）を一気に作る。
+ 1. <b>タイマー①②</b>：イントロ（数字カウントアップ＋空枠完成→ゲージ充填）とダークな雰囲気、これでOK？<br>
+ 2. <b>字幕③</b>：シンプルに戻したやつ、これでいい？文言の増減ある？<br>
+ 3. <b>吹き出し④</b>：枠のデザインとセリフ10案、使う数とOK/直し。<br>
+ 4. <b>BGM⑥</b>：Sunoで静かめに作り直すね。できたら追記する。
 </div>
 
-<footer>// CyberLove · pomodoro No.001 · revision test v4 · made with Claude Code · リン</footer>
+<footer>// CyberLove · pomodoro No.001 · revision test v5 · made with Claude Code · リン</footer>
 </body></html>
