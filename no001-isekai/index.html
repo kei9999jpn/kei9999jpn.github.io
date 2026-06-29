@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>異世界の叡智 — ポモドーロ素材ショーケース</title>
+<meta property="og:title" content="異世界の叡智 × Zelda-BOTW Pomodoro — overlay materials">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital@0;1&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d8c089;--cyan:#5fe0d8;--ink:#0c1012;--cream:#f3ecdb}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(130% 90% at 50% -10%,#16201f,#0a0d0e 65%);color:#e7e2d4;font-family:'EB Garamond','Noto Serif JP',serif;min-height:100vh;padding:0 0 90px}
+#loader{position:fixed;inset:0;z-index:50;background:radial-gradient(120% 90% at 50% 35%,#16201f,#0a0d0e 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .7s}
+#loader.gone{opacity:0;pointer-events:none}
+.le{margin-bottom:18px}
+.lt{font-family:'Cinzel';color:var(--cyan);letter-spacing:.34em;font-size:13px;margin-bottom:14px;text-shadow:0 0 12px rgba(95,224,216,.6)}
+.bar{width:min(70vw,380px);height:8px;border:1px solid #3a4a44;border-radius:5px;overflow:hidden;background:#0c1413}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--gold));box-shadow:0 0 14px rgba(95,224,216,.7);transition:width .14s}
+#content{opacity:0;transition:opacity .9s}#content.show{opacity:1}
+header{text-align:center;padding:56px 18px 6px}
+.brand{font-family:'Cinzel';font-weight:700;font-size:clamp(26px,6.5vw,46px);color:#fff;letter-spacing:.06em;text-shadow:0 0 24px rgba(216,192,137,.5)}
+.brand .jp{font-family:'Noto Serif JP';display:block;font-size:clamp(15px,4vw,22px);color:var(--gold);margin-bottom:6px;letter-spacing:.16em}
+.tag{font-family:'Cinzel';font-weight:600;letter-spacing:.26em;color:var(--cyan);margin-top:12px;font-size:clamp(10px,2.6vw,13px);text-shadow:0 0 12px rgba(95,224,216,.6)}
+.sub{max-width:700px;margin:16px auto 0;padding:0 20px;color:#cfc8b8;line-height:1.8;font-size:16px}
+.grid{max-width:1040px;margin:34px auto 0;padding:0 18px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:linear-gradient(180deg,rgba(18,24,24,.9),rgba(10,13,14,.95));border:1px solid #2c3a35;border-radius:14px;overflow:hidden;box-shadow:0 12px 38px rgba(95,224,216,.08)}
+.card video{width:100%;display:block;background:#00b140}
+.card .b{padding:13px 16px}
+.card h3{font-family:'Cinzel';font-weight:600;font-size:15px;color:var(--gold);letter-spacing:.05em}
+.card p{color:#b9b2a2;font-size:14px;margin-top:6px;line-height:1.7}
+.card .n{font-family:'Cinzel';color:var(--cyan);font-size:11px;letter-spacing:.18em}
+h2{font-family:'Cinzel';font-weight:700;font-size:clamp(16px,4vw,20px);color:#fff;margin:48px auto 8px;max-width:920px;padding:0 18px;letter-spacing:.08em;text-align:center}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px}
+.row{display:flex;align-items:center;gap:12px;background:rgba(18,24,24,.7);border:1px solid #2c3a35;border-radius:12px;padding:10px 14px;margin-top:10px}
+.row .lab{flex:0 0 auto;min-width:150px}.row .lab b{font-family:'Cinzel';font-size:13px;color:var(--gold);display:block}.row .lab span{font-size:13px;color:#9a9482}
+.row audio{flex:1 1 auto;width:100%;height:34px}
+.tbl{max-width:920px;margin:10px auto 0;padding:0 18px}
+.tbl table{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl td{border-bottom:1px solid #232f2b;padding:9px 10px;vertical-align:top}
+.tbl td.en{color:var(--cream);font-style:italic;width:54%}.tbl td.zh{color:var(--gold);font-family:'Noto Serif JP',serif}
+.note{max-width:920px;margin:16px auto 0;padding:0 22px;color:#9a9482;font-size:13.5px;line-height:1.8;text-align:center}
+footer{text-align:center;color:#6f6a59;margin-top:48px;font-size:12px;letter-spacing:.14em;font-family:'Cinzel'}
+.eye{width:46px;height:30px;display:inline-block}
+</style></head><body>
+<div id="loader">
+ <svg class="eye le" viewBox="0 0 100 64"><g fill="none" stroke="#5fe0d8" stroke-width="3"><path d="M8 32 Q50 4 92 32 Q50 60 8 32Z"/><circle cx="50" cy="32" r="11"/><circle cx="50" cy="32" r="4" fill="#5fe0d8"/><path d="M34 14 l5 -12 M50 11 l0 -11 M66 14 l-5 -12 M50 47 l0 14"/></g></svg>
+ <div class="lt">UNSEALING THE RITE OF FOCUS</div>
+ <div class="bar"><i id="bf"></i></div>
+</div>
+<div id="content">
+<header>
+ <div class="brand"><span class="jp">異世界の叡智</span>THE RITE OF FOCUS</div>
+ <div class="tag">STUDY WITH ME · 25 / 5 POMODORO · ゼルダBOTW UI</div>
+ <p class="sub">「異世界の叡智」チャンネルの集中サポート動画。ゼルダBOTW風のHUDに、シーカーの目と賢者の言葉を重ねた素材一式。全部クロマキー緑で、VRChat背景に乗せる前提。タイマーの仕組み・尺は前回版と同一、見た目だけ異世界仕様に作り替え。</p>
+</header>
+<div class="grid">
+ <div class="card"><video src="m/intro.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">PROLOGUE</div><h3>イントロ（ディゾルブ）</h3><p>ゼルダのマップが開くような荘厳なフェードでルールを提示。EN＋簡体字中国語。</p></div></div>
+ <div class="card"><video src="m/timer_focus.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">FOCUS · 25</div><h3>25分 集中タイマー</h3><p>シーカー風カートゥーシュ＋エネルギーゲージ。頭3秒で満タン演出→計測。仕組みは前回と同一。</p></div></div>
+ <div class="card"><video src="m/timer_break.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">REST · 5</div><h3>5分 休憩タイマー</h3><p>円環ゲージ。同じ世界観で統一。</p></div></div>
+ <div class="card"><video src="m/dialogue.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">THE SAGE</div><h3>下の吹き出し＋目</h3><p>画面下に賢者の言葉（EN/ZH）。<b style="color:#d8c089">目.png</b>が下で上下に揺れ、喋っている演出。時間に連動して14本。</p></div></div>
+ <div class="card"><video src="m/session.mp4" autoplay loop muted playsinline></video><div class="b"><div class="n">SESSION</div><h3>左上セッション表示</h3><p>THE RITE OF FOCUS / SESSION I · 1 OF 4。シーカーの目グリフ付き、I→IV。</p></div></div>
+ <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:200px"><div class="b" style="text-align:center"><div class="n">AMBIENCE</div><h3>BGM ／ 雨</h3><p>ダーク・アンビエント4曲（下で試聴）＋小雨。集中中はBGM＋雨、休憩中は雨のみ。</p></div></div>
+</div>
+
+<h2>賢者の言葉 — Dialogue (EN / 简体中文)</h2>
+<div class="tbl"><table>
+ <tr><td class="en">Begin. For the next twenty-five minutes, let the world manage without you.</td><td class="zh">开始吧。接下来的二十五分钟，就让世界自己运转。</td></tr>
+ <tr><td class="en">Concentration is simply the art of ignoring everything else, gracefully.</td><td class="zh">所谓专注，不过是优雅地无视其余一切。</td></tr>
+ <tr><td class="en">Fifteen minutes remain. Long enough to matter, short enough to endure.</td><td class="zh">还剩十五分钟。足以成事，亦足以坚持。</td></tr>
+ <tr><td class="en">The work you avoid does not disappear. It merely waits, and grows heavier.</td><td class="zh">你逃避的工作不会消失，它只是静静等待，并愈发沉重。</td></tr>
+ <tr><td class="en">Ten minutes. Even mountains were once a single, patient stone.</td><td class="zh">还剩十分钟。再高的山，也曾是一块耐心的石头。</td></tr>
+ <tr><td class="en">Five minutes. The hardest part of any journey is rarely the distance.</td><td class="zh">还剩五分钟。任何旅途最难的，往往不是路程本身。</td></tr>
+ <tr><td class="en">One minute. Finish quietly. The proud announce; the wise simply complete.</td><td class="zh">还剩一分钟。安静地收尾吧。骄傲者宣告，智者只是完成。</td></tr>
+ <tr><td class="en">It is done. You have given time its only true purpose.</td><td class="zh">完成了。你赋予了时间唯一真正的意义。</td></tr>
+ <tr><td class="en">Rest now. The mind, like a field, yields nothing if never left fallow.</td><td class="zh">现在歇息吧。心如田地，从不休耕则颗粒无收。</td></tr>
+ <tr><td class="en">Again, then. The patient are not slower — they simply do not stop.</td><td class="zh">那么，再来一次。有耐心者并非更慢，他们只是从不停下。</td></tr>
+</table></div>
+<p class="note">全14本を、各セッションの「開始／残り15分／残り10分／残り5分／残り3分／残り1分／完了」等の時間に連動して表示。</p>
+
+<h2>BGM — Dark Ambient (Suno AI · Instrumental)</h2>
+<div class="wrap">
+ <div class="row"><div class="lab"><b>I 古き叡智</b><span>pads・bells</span></div><audio src="m/bgm1.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>II 荘厳</b><span>cello drones・choir</span></div><audio src="m/bgm2.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>III 静寂</b><span>雨に溶ける</span></div><audio src="m/bgm3.mp3" controls preload="none"></audio></div>
+ <div class="row"><div class="lab"><b>IV 神秘</b><span>ritual・chimes</span></div><audio src="m/bgm4.mp3" controls preload="none"></audio></div>
+</div>
+<p class="note">本番はこの4曲をセッション別に組み合わせて25分ベッド×4に。雨は前回の小雨をそのまま使用。<br>Premiereシーケンス：イントロ→S1→休憩→S2→休憩→S3→休憩→S4→休憩（約122分）に全素材を配置済み。VRChat背景を下に敷けば完成。</p>
+<footer>異世界の叡智 · THE RITE OF FOCUS · made with Claude Code</footer>
+</div>
+<script>
+var f=document.getElementById('bf'),L=document.getElementById('loader'),C=document.getElementById('content'),v=0;
+var iv=setInterval(function(){v+=Math.max(1,Math.round((100-v)*0.07));if(v>=100){v=100;clearInterval(iv);setTimeout(function(){L.classList.add('gone');C.classList.add('show');},450);}f.style.width=v+'%';},75);
+</script>
+</body></html>
