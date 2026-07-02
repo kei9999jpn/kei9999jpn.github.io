@@ -1,0 +1,84 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No.001 v11 — 修正版テスト（KEIの効果音入り）</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#06040b;--card:#0d0a16;--ink:#eafaff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rajdhani,'Segoe UI',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 90px}
+h1{font-family:Orbitron,sans-serif;font-size:22px;letter-spacing:.14em;margin:6px 0 2px}
+h1 .px{color:var(--pink)} h1 .cx{color:var(--cyan)}
+.sub{font-family:'Share Tech Mono',monospace;color:#7fd7c8;font-size:12px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid #1c1530;border-radius:10px;padding:18px 18px 22px;margin-bottom:34px}
+.card h2{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:.1em;color:var(--cyan);margin:0 0 4px}
+.card h2 .no{color:var(--pink);margin-right:8px}
+.desc{font-size:15px;line-height:1.75;color:#c9c2dd;margin:8px 0 14px}
+.desc b{color:var(--ink)}
+video{width:100%;border-radius:6px;background:#000;display:block;margin-bottom:10px}
+.note{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin-top:10px;line-height:1.7}
+.se{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px;font-family:'Share Tech Mono',monospace}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+td,th{border:1px solid #241c3a;padding:6px 10px;text-align:left;color:#c9c2dd}
+th{color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px}
+.foot{font-family:'Share Tech Mono',monospace;font-size:11px;color:#554d70;text-align:center;margin-top:40px}
+</style></head><body><div class="wrap">
+<h1>NO.001 <span class="cx">HUD REBUILD</span> <span class="px">v11</span></h1>
+<div class="sub">// 2026-07-02 修正版 — KEIが送った効果音を動きに合わせて埋め込み済み。音量上げて再生してね</div>
+
+<div class="card">
+<h2><span class="no">①</span>25分タイマー <span class="se">♪ KEIの効果音入り</span></h2>
+<div class="desc">
+<b>出方：</b>ラインで描く演出をやめて、<b>ボアンと一気に浮き出るポップ</b>に（低音の出現音つき）。<br>
+<b>流れ：</b>浮き出る → <b>5秒かけて</b>0:00→25:00カウントアップ → 3.5秒静止 → <b>5回点滅</b>（1回ずつ音つき）→ トリル音でFOCUSスタート。<br>
+<b>ラベル：</b>STANDBY=<b style="color:#ff5096">ピンク</b> → FOCUS=<b style="color:#78dcff">水色</b> → DONE=<b style="color:#ff5096">ピンク</b>。切替時はHUDアニメ（前の文字が浮いて消え、新しい文字がキュッと決まる＋横ラインが光って伸び直す）。<br>
+<b>ゲージ：</b>長方形に戻して、<b>真ん中に達成％</b>（小さい暗プレートで白でも緑でも読める）。溜まり方は前のまま。
+</div>
+<video src="m/v11_focus.mp4" controls preload="metadata"></video>
+<div class="note">音の割当は下の表。テスト用に中身圧縮（本番は実尺25分・最後の5秒だけ実速で見せてる）</div>
+</div>
+
+<div class="card">
+<h2><span class="no">②</span>5分休憩タイマー <span class="se">♪ タイピング音のみ</span></h2>
+<div class="desc">
+<b>出たら3秒止まって、すぐカウント開始</b>。点滅なし、カウントアップなし。<br>
+タイマー自体の音は外した（出現のボアンだけ残してる。要らなければ消す）。下の休憩メッセージは<b>タイピング音つき・本番は約1分ごと</b>に切替（テストは6秒ごと）。BREAK=水色、終わりのDONE=ピンク。
+</div>
+<video src="m/v11_break.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">③</span>左上セッション文字 <span class="se">変更なし（完成）</span></h2>
+<div class="desc">前回OKもらったのでそのまま。参考にもう一度置いておくね。</div>
+<video src="m/v11_cmd01.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">④</span>吹き出し <span class="se">♪ SE入り・左右2パターン</span></h2>
+<div class="desc">
+<b>形は元のチャンファー箱に戻した</b>（スレート型廃止）。右上の点滅ドットは<b>水色</b>に変更（緑はクロマキーで抜けるから）。<br>
+背景の黒30%濃く・文字純白・キーボード風の揺らぎタイピングは維持。<b>左下パターンと右下パターン</b>の2種。本番はセリフ12本を左右ランダムで振り分けて量産する。
+</div>
+<video src="m/v11_bub_l.mp4" controls preload="metadata"></video>
+<video src="m/v11_bub_r.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2>♪ KEIの効果音の割当表</h2>
+<div class="desc">音はぜんぶKEIが送ってくれたファイル。合ってなかったら「◯◯は△△の音に変えて」って言えば入れ替えられる。</div>
+<table>
+<tr><th>ファイル</th><th>使った場所</th></tr>
+<tr><td>creatorshome-on-001（低いボアン）</td><td>タイマー出現（25分・5分共通）</td></tr>
+<tr><td>3.mp3（デジタル処理音・長め）</td><td>カウントアップ開始（0:00→25:00）</td></tr>
+<tr><td>52.mp3（短い低ブリップ）</td><td>点滅5回（1回ずつ）＋残り5秒のカウント</td></tr>
+<tr><td>1.mp3（ピピピピのトリル）</td><td>FOCUSスタートの瞬間</td></tr>
+<tr><td>8bc9…mp3（下降カスケード）</td><td>0:00 DONEの瞬間</td></tr>
+<tr><td>2_1.mp3 / 2.mp3（デジタルバースト）</td><td>未使用（予備。字幕の出現音とかに使える）</td></tr>
+</table>
+</div>
+
+<div class="desc" style="margin-top:-10px">
+<b>全部OKなら「OK」だけでいい。</b>直しは番号（①〜④）＋内容で。OK後に本番書き出し（実尺25分/5分・session01〜04・吹き出し12本左右ランダム）→ Premiere配置に進む。
+</div>
+<div class="foot">CyberLove — A7 / made with Claude Code (Fable 5)</div>
+</div></body></html>
