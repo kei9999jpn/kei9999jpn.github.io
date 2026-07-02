@@ -1,0 +1,71 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No.001 v10 — HUD全面作り直しテスト</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#06040b;--card:#0d0a16;--ink:#eafaff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rajdhani,'Segoe UI',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 90px}
+h1{font-family:Orbitron,sans-serif;font-size:22px;letter-spacing:.14em;margin:6px 0 2px}
+h1 .px{color:var(--pink)} h1 .cx{color:var(--cyan)}
+.sub{font-family:'Share Tech Mono',monospace;color:#7fd7c8;font-size:12px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid #1c1530;border-radius:10px;padding:18px 18px 22px;margin-bottom:34px}
+.card h2{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:.1em;color:var(--cyan);margin:0 0 4px}
+.card h2 .no{color:var(--pink);margin-right:8px}
+.desc{font-size:15px;line-height:1.75;color:#c9c2dd;margin:8px 0 14px}
+.desc b{color:var(--ink)}
+video{width:100%;border-radius:6px;background:#000;display:block}
+.note{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin-top:10px;line-height:1.7}
+.se{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px;font-family:'Share Tech Mono',monospace}
+.foot{font-family:'Share Tech Mono',monospace;font-size:11px;color:#554d70;text-align:center;margin-top:40px}
+</style></head><body><div class="wrap">
+<h1>NO.001 <span class="cx">HUD REBUILD</span> <span class="px">v10</span></h1>
+<div class="sub">// 2026-07-02 全面作り直しテスト — 全部音付き。音量上げて再生してね</div>
+
+<div class="card">
+<h2><span class="no">①</span>25分タイマー <span class="se">♪ SE入り</span></h2>
+<div class="desc">
+1からデザインし直し。<b>数字は純白</b>（水色の枠グロウ廃止）、Rajdhani体でCP2077系に。ゲージは<b>細かいセグメント＋斜めカット枠＋5分ごとの区切り線</b>、右端にピンクを一滴。<br>
+演出：HUD組み上がり → 0:00→25:00カウントアップ（<b>途中で固まるバグ修正済み</b>）→ 3.5秒静止 → <b>軽く2回点滅</b>（ここにKEIの効果音も入れられる）→ FOCUSでカウント開始・ゲージが溜まっていく。残り5秒ゆっくり点滅 → 0:00でDONE・ふわっと拡大 → 5秒静止 → ゆっくり消える。<br>
+※テスト用に中身を圧縮（本番は実尺25分）。最後の5秒だけ実速で見せてる。
+</div>
+<video src="m/v10_focus.mp4" controls preload="metadata"></video>
+<div class="note">音: HUD出現ボアン / チャージ音 / 点滅ピッ×2 / スタート音 / 残5秒ピッピッ / 終了音 / 消えるとき下降音（全部控えめ・要らない音は言ってくれれば外す）</div>
+</div>
+
+<div class="card">
+<h2><span class="no">②</span>5分休憩タイマー <span class="se">♪ SE入り</span></h2>
+<div class="desc">
+円形も1から。<b>細い白リングが残り時間で減っていく</b>＋分ごとの目盛り＋先端に光る点。数字は純白。12時位置にピンクの起点マーク。<br>
+下に<b>休憩アクション（STRETCH / DRINK WATERなど）がキーボード風タイピング</b>で約1分ごとに巡回（テストでは早回し）。演出の流れは25分と同じ（組み上がり→チャージ→静止→2回点滅→スタート）。
+</div>
+<video src="m/v10_break.mp4" controls preload="metadata"></video>
+<div class="note">音: タイマー系は①と同じ / メッセージのタイピングはカチャカチャ音が文字と完全同期</div>
+</div>
+
+<div class="card">
+<h2><span class="no">③</span>左上セッション文字 <span class="se">♪ SE入り</span></h2>
+<div class="desc">
+<b>グロウ（ボヤボヤ光）を全部除去</b>して文字クッキリ。タイピング速度<b>20%減速</b>。打ち終わったらカーソルが<b>5回点滅して消える</b>→そのまま10秒静止（この10秒をKEIが25分に伸ばす用）。全体約18秒。<br>
+OKならsession 01〜04の4本を書き出してV4の各セッション頭に配置する。
+</div>
+<video src="m/v10_cmd01.mp4" controls preload="metadata"></video>
+<div class="note">音: 1文字ずつのキータイプ音＋打ち終わりに小さくピッ。文字と完全同期</div>
+</div>
+
+<div class="card">
+<h2><span class="no">④</span>吹き出し（メッセージスレート）<span class="se">♪ SE入り</span></h2>
+<div class="desc">
+形を<b>通信スレート型</b>に作り直し：左上の大きな斜めカット＋左下の段差ノッチ＋ヘッダ仕切り＋左端アクセントバー（先端ピンク）。<b>背景の黒を30%濃く</b>。枠が左→右にスキャンして組み上がってから文字。<br>
+<b>テキストは純白（水色グロウ廃止）</b>、タイピングは<b>本物のキーボードみたいに速さが揺らぐ</b>遅めのリズムに。セリフは今のまま変更なし。
+</div>
+<video src="m/v10_bubble.mp4" controls preload="metadata"></video>
+<div class="note">音: HUD出現ボアン＋タイピング音（揺らぎごと同期）＋消えるとき下降音</div>
+</div>
+
+<div class="desc" style="margin-top:-10px">
+<b>このページの見方：</b>全部OKなら「OK」だけでいい。直しは番号（①〜④）で言ってくれたら、そこだけ直す。OK後に本番書き出し（25分/5分 実尺・session01〜04・音付き）→ Premiere配置に進む。
+</div>
+<div class="foot">CyberLove — A7 / made with Claude Code (Fable 5)</div>
+</div></body></html>
