@@ -1,0 +1,80 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No.001 v12 — 修正版テスト＋BGM試聴（まとめページ）</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#06040b;--card:#0d0a16;--ink:#eafaff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rajdhani,'Segoe UI',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 90px}
+h1{font-family:Orbitron,sans-serif;font-size:22px;letter-spacing:.14em;margin:6px 0 2px}
+h1 .px{color:var(--pink)} h1 .cx{color:var(--cyan)}
+.sub{font-family:'Share Tech Mono',monospace;color:#7fd7c8;font-size:12px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid #1c1530;border-radius:10px;padding:18px 18px 22px;margin-bottom:34px}
+.card h2{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:.1em;color:var(--cyan);margin:0 0 4px}
+.card h2 .no{color:var(--pink);margin-right:8px}
+.desc{font-size:15px;line-height:1.75;color:#c9c2dd;margin:8px 0 14px}
+.desc b{color:var(--ink)}
+video{width:100%;border-radius:6px;background:#000;display:block;margin-bottom:10px}
+audio{width:100%;margin-bottom:10px}
+.t{font-family:'Share Tech Mono',monospace;font-size:12px;color:#7fd7c8;margin:2px 0 4px}
+.pr{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin:4px 0 10px;line-height:1.6}
+.note{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin-top:10px;line-height:1.7}
+.tag{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px;font-family:'Share Tech Mono',monospace}
+.foot{font-family:'Share Tech Mono',monospace;font-size:11px;color:#554d70;text-align:center;margin-top:40px}
+</style></head><body><div class="wrap">
+<h1>NO.001 <span class="cx">v12</span> <span class="px">まとめ</span></h1>
+<div class="sub">// 2026-07-02 動画=効果音ぜんぶ抜き(KEIが自分で配置する用)。あたし製のSEは別ファイルでDiscordに送付済み</div>
+
+<div class="card">
+<h2><span class="no">①</span>25分タイマー <span class="tag">無音</span></h2>
+<div class="desc">
+<b>出現→カウントアップ完了まで約3.5秒</b>（4秒以内に短縮）。点滅5回は廃止して、<b>開始の瞬間にタイマー全体がクッと大きくなって戻る</b>「始まったよ」パルスに変更。<br>
+文字は全部白（切替アニメはそのまま）。ゲージは<b>10%長く</b>、光が走る演出は削除。真ん中の％は<b>黒背景なし・軽いシャドウで浮かせる</b>方式。ゲージの枠にも薄いシャドウ入れて0%でも見えるようにした。終わり際は変更なし（ほぼ完璧って言ってたところ）。
+</div>
+<video src="m/v12_focus.mp4" controls preload="metadata"></video>
+<div class="note">音の置き場所の目安(この動画の時間): 出現=0秒 / カウントアップ=0.5〜3.5秒 / 開始パルス=6.5秒 / 残り5秒=21.4秒〜 / DONE=27.4秒</div>
+</div>
+
+<div class="card">
+<h2><span class="no">②</span>5分休憩タイマー <span class="tag">無音</span></h2>
+<div class="desc">
+上の文字は<b>ずっと「BREAK」・白</b>（DONEに変わらない）。出て3秒→即カウント開始、点滅なし。休憩メッセージは本番約1分ごと（テストは6秒ごと）。
+</div>
+<video src="m/v12_break.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">③</span>左上セッション文字 <span class="tag">完成・変更なし</span></h2>
+<div class="desc">確定版。（動画は前と同じ・音なし版はKEIがタイピング音を自分で乗せてもOK、あたしのkey_tick音も送付済み）</div>
+</div>
+
+<div class="card">
+<h2><span class="no">④</span>吹き出し <span class="tag">無音・左右＋反転</span></h2>
+<div class="desc">
+タイピングを<b>ハッキリ見えるようにゆっくり</b>にした（左上のセッション文字と同じノリ）。<b>中国語は水色</b>。<br>
+下=左下の通常向き、上=右下の<b>左右反転HUD</b>（キャラが反対側にいる時用）。本番はセリフ12本を「左/右×通常/反転」を混ぜて量産する。
+</div>
+<video src="m/v12_bub_r.mp4" controls preload="metadata"></video>
+<video src="m/v12_bub_l.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">⑤</span>BGM試聴 — 静かな雨のサイバーアンビエント</h2>
+<div class="desc">KEIのキーワード（Night City / Snowfall by Øneheart / ブレードランナー / 雨 / 静か）から<b>3方向×2曲</b>。全部インスト・ドラムなし。方向を選んでくれたら、その系統で追加生成して<b>25分×4セッションのベッド</b>を作る。</div>
+<div class="t">A-1 BLADE RUNNER RAIN DRONE (3:09)</div><audio controls preload="none" src="bgm/p1a_bladerunner.mp3"></audio>
+<div class="t">A-2 (3:04)</div><audio controls preload="none" src="bgm/p1b_bladerunner.mp3"></audio>
+<div class="pr">prompt: quiet cyberpunk ambient drone, soft rain, Blade Runner pads, warm slow synths, no drums, calm night, study focus</div>
+<div class="t">B-1 SNOWFALL ETHEREAL (3:13)</div><audio controls preload="none" src="bgm/p2a_snowfall.mp3"></audio>
+<div class="t">B-2 (2:42)</div><audio controls preload="none" src="bgm/p2b_snowfall.mp3"></audio>
+<div class="pr">prompt: ethereal ambient dreamscape, gentle rain on neon streets, airy pads, deep sub drone, snowfall chillwave, very quiet</div>
+<div class="t">C-1 WARM TAPE QUIET (1:32)</div><audio controls preload="none" src="bgm/p3a_warmtape.mp3"></audio>
+<div class="t">C-2 (2:19)</div><audio controls preload="none" src="bgm/p3b_warmtape.mp3"></audio>
+<div class="pr">prompt: warm dark ambient, tape hiss, muted synth swells, light drizzle, dreamy nostalgic, ultra quiet study music, no beat</div>
+</div>
+
+<div class="desc">
+<b>返信の仕方：</b>動画は番号（①〜④）でOK/直し、BGMは方向（A/B/C、または「A-2の感じ」）。全部OKなら本番書き出し→Premiere配置へ。
+</div>
+<div class="foot">CyberLove — A7 / made with Claude Code (Fable 5)</div>
+</div></body></html>
