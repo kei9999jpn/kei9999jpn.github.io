@@ -1,0 +1,66 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No.001 v14 — 最終テスト（本番書き出し前の確認）</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#06040b;--card:#0d0a16;--ink:#eafaff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rajdhani,'Segoe UI',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 90px}
+h1{font-family:Orbitron,sans-serif;font-size:22px;letter-spacing:.14em;margin:6px 0 2px}
+h1 .px{color:var(--pink)} h1 .cx{color:var(--cyan)}
+.sub{font-family:'Share Tech Mono',monospace;color:#7fd7c8;font-size:12px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid #1c1530;border-radius:10px;padding:18px 18px 22px;margin-bottom:34px}
+.card h2{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:.1em;color:var(--cyan);margin:0 0 4px}
+.card h2 .no{color:var(--pink);margin-right:8px}
+.desc{font-size:15px;line-height:1.75;color:#c9c2dd;margin:8px 0 14px}
+.desc b{color:var(--ink)}
+video{width:100%;border-radius:6px;background:#000;display:block;margin-bottom:10px}
+.note{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin-top:10px;line-height:1.7}
+.tag{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px;font-family:'Share Tech Mono',monospace}
+.foot{font-family:'Share Tech Mono',monospace;font-size:11px;color:#554d70;text-align:center;margin-top:40px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+td,th{border:1px solid #241c3a;padding:6px 10px;text-align:left;color:#c9c2dd}
+th{color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:11px}
+</style></head><body><div class="wrap">
+<h1>NO.001 <span class="cx">v14</span> <span class="px">最終テスト</span></h1>
+<div class="sub">// 2026-07-02深夜 — これでOKなら本番書き出し→Premiere配置(朝までに完了)。動画の頭0.6秒は余白</div>
+
+<div class="card">
+<h2><span class="no">①</span>25分タイマー <span class="tag">v13から変更なし</span></h2>
+<div class="desc">前回のリラックス版のまま。本番は1本(実尺25分)。</div>
+<video src="m/v13_focus.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">②</span>5分休憩タイマー <span class="tag">メッセージ改</span></h2>
+<div class="desc">
+下のメッセージは<b>5分間に2回だけチェンジ</b>（約2分半ごと・うるさくない）。セリフは<b>8種類・重複なし</b>で、本番は<b>4パターンのタイマー動画</b>に分けて書き出す：<br>
+パターン1=REST YOUR EYES / DRINK WATER ・ パターン2=STRETCH / DEEP BREATH ・ パターン3=ROLL SHOULDERS / LOOK FAR AWAY ・ パターン4=RELAX YOUR NECK / CLOSE YOUR EYES<br>
+（テスト動画はパターン1・早回し）
+</div>
+<video src="m/v14_break.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">④</span>吹き出し <span class="tag">中央・ふわっと出現</span></h2>
+<div class="desc">
+<b>画面の真ん中</b>に配置（位置はKEIがPremiereで動かす前提）。<b>タイマーと同じふわっとしたディゾルブで出現</b>→ひと呼吸→タイピング開始。<b>中国語は英語を打ち終わってから</b>ふわっと出る。下=通常向き、その下=反転版。
+</div>
+<video src="m/v14_bub.mp4" controls preload="metadata"></video>
+<video src="m/v14_bub_flip.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">⑤</span>BGM <span class="tag">D3系で量産中</span></h2>
+<div class="desc">
+D3（dark drone・lonely night mood・低BPM・盛り上がり禁止）の方向で、プロンプトを少しずつ変えながら<b>28曲生成中</b>。このあと盛り上がる曲を外して選別→<b>つなぎ目がわからない25分×4本のベッド</b>（クロスフェード＋音量均し）に編成する。<br>
+今までのSuno曲も全部 <b>D:\kei-studio-work\pomodoro\No.001\music_library\</b> に世代別で整理しておく（気に食わない曲の入れ替え用）。
+</div>
+</div>
+
+<div class="desc">
+<b>KEIがやること：</b>この4つを見て「いい」って言うだけ。そしたら本番書き出し（25分1本・5分×4パターン・session01〜04・吹き出し12本・BGMベッド4本）→Premiere配置まで朝までに終わらせる。VRChat背景を入れるだけの状態にしておく。
+</div>
+<div class="foot">CyberLove — A7 / made with Claude Code (Fable 5)</div>
+</div></body></html>
