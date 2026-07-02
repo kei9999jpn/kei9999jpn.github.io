@@ -1,0 +1,77 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>No.001 v13 — リラックス調整＋ダークアンビエントBGM</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff2d86;--cyan:#00e5ff;--bg:#06040b;--card:#0d0a16;--ink:#eafaff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rajdhani,'Segoe UI',sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 90px}
+h1{font-family:Orbitron,sans-serif;font-size:22px;letter-spacing:.14em;margin:6px 0 2px}
+h1 .px{color:var(--pink)} h1 .cx{color:var(--cyan)}
+.sub{font-family:'Share Tech Mono',monospace;color:#7fd7c8;font-size:12px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid #1c1530;border-radius:10px;padding:18px 18px 22px;margin-bottom:34px}
+.card h2{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:.1em;color:var(--cyan);margin:0 0 4px}
+.card h2 .no{color:var(--pink);margin-right:8px}
+.desc{font-size:15px;line-height:1.75;color:#c9c2dd;margin:8px 0 14px}
+.desc b{color:var(--ink)}
+video{width:100%;border-radius:6px;background:#000;display:block;margin-bottom:10px}
+audio{width:100%;margin-bottom:10px}
+.t{font-family:'Share Tech Mono',monospace;font-size:12px;color:#7fd7c8;margin:2px 0 4px}
+.pr{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin:4px 0 10px;line-height:1.6}
+.note{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6a6383;margin-top:10px;line-height:1.7}
+.tag{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);font-size:11px;border-radius:4px;padding:1px 8px;margin-left:8px;vertical-align:2px;font-family:'Share Tech Mono',monospace}
+.foot{font-family:'Share Tech Mono',monospace;font-size:11px;color:#554d70;text-align:center;margin-top:40px}
+</style></head><body><div class="wrap">
+<h1>NO.001 <span class="cx">v13</span> <span class="px">リラックス版</span></h1>
+<div class="sub">// 2026-07-02 深呼吸テンポのアニメ＋ダークアンビエントBGM作り直し。動画は無音(SEはKEI配置)・頭に0.6秒の余白入り(トリム用)</div>
+
+<div class="card">
+<h2><span class="no">①</span>25分タイマー <span class="tag">無音</span></h2>
+<div class="desc">
+<b>％はゲージの下（中央）に移動</b>して見やすく。<b>ゲージの溜まりは水色</b>のHUD調に。<b>STANDBY=ピンク → FOCUS=水色 → DONE=ピンク</b>の色も復活。<br>
+アニメは全部<b>深呼吸テンポ</b>に：出現はふんわり浮き出る／開始は1.6秒かけてゆっくりふくらんで戻る／ラベル切替もゆったり／残り5秒の点滅は呼吸みたいに薄く／終わりもゆっくり拡大→ゆっくり消える。
+</div>
+<video src="m/v13_focus.mp4" controls preload="metadata"></video>
+<div class="note">動画の頭0.6秒は無地（録画の頭欠け対策・トリムして使ってね）</div>
+</div>
+
+<div class="card">
+<h2><span class="no">②</span>5分休憩タイマー <span class="tag">無音</span></h2>
+<div class="desc">
+<b>BREAK=水色</b>。下のメッセージは<b>英語=白・中国語=水色</b>。出現もふんわりに。（出て3秒→即カウント、点滅なしは前回のまま）
+</div>
+<video src="m/v13_break.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">④</span>吹き出し <span class="tag">無音・タイピング修正</span></h2>
+<div class="desc">
+前回のは<b>録画の頭が欠けて</b>最初の文字が一気に出てた（ごめん！）。今回は頭に余白を入れて、<b>P→H→O→N→E…と1文字目から約3秒かけて</b>ちゃんと打つ。<b>打ち終わりがけに中国語が水色でふわっとディゾルブ</b>。
+</div>
+<video src="m/v13_bub_r.mp4" controls preload="metadata"></video>
+<video src="m/v13_bub_l.mp4" controls preload="metadata"></video>
+</div>
+
+<div class="card">
+<h2><span class="no">⑤</span>BGM作り直し — ダークアンビエント（øneheart / dreamscape系）</h2>
+<div class="desc">
+snowfallの意味を取り違えてた（ごめん）。<b>øneheart x reidenshi / dreamscape系＝アンビエントウェーブ</b>（スロー＋深いリバーブ・ドラムなし・ミニマル）を調べて、プロンプトを組み直した。<br>
+<b>「cyberpunk」も「rain」も入れてない</b>：場面の名前じゃなくて「そこで鳴ってる音」（warm analog pads / huge reverb tail / lonely night mood）を直接書く方式。雨はKEIが自分で足す前提。
+</div>
+<div class="t">D1-a AMBIENT WAVE (2:48)</div><audio controls preload="none" src="bgm/d1a_wave.mp3"></audio>
+<div class="t">D1-b (2:59)</div><audio controls preload="none" src="bgm/d1b_wave.mp3"></audio>
+<div class="pr">prompt: ambient wave, slowed dreamy synth pads, huge reverb tail, soft sub bass, melancholic, minimal, 65bpm, no drums</div>
+<div class="t">D2-a DREAMSCAPE (2:19)</div><audio controls preload="none" src="bgm/d2a_dreamscape.mp3"></audio>
+<div class="t">D2-b (2:43)</div><audio controls preload="none" src="bgm/d2b_dreamscape.mp3"></audio>
+<div class="pr">prompt: dreamscape ambient, washed-out detuned pads, distant soft piano, long reverb, introspective calm, very quiet, no drums</div>
+<div class="t">D3-a DARK DRONE (3:29)</div><audio controls preload="none" src="bgm/d3a_drone.mp3"></audio>
+<div class="t">D3-b (3:27)</div><audio controls preload="none" src="bgm/d3b_drone.mp3"></audio>
+<div class="pr">prompt: dark ambient drone, warm analog pads, slow evolving chords, wide stereo, softened transients, lonely night mood, no beat</div>
+</div>
+
+<div class="desc">
+<b>返信：</b>動画=番号（①②④）でOK/直し。BGM=D1/D2/D3（か「D3-aの感じ」）。方向が決まったらその系統で追加生成→<b>25分×4セッションのベッド</b>を作る。
+</div>
+<div class="foot">CyberLove — A7 / made with Claude Code (Fable 5)</div>
+</div></body></html>
