@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ichigo Club アイコン設計案</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍓</text></svg>">
+<style>
+  :root {
+    --bg: #f6eef6;
+    --bg2: #efe2ef;
+    --card: #fffafd;
+    --ink: #3d2a42;
+    --ink-soft: #75607c;
+    --accent: #d94b85;
+    --accent-soft: #f3cade;
+    --line: #e3cfe0;
+    --gold: #b98aa5;
+  }
+  body {
+    background: linear-gradient(170deg, var(--bg), var(--bg2));
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 2.5rem 1.2rem 4rem;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .28em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: .6rem;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 2.1rem; font-weight: 500;
+    margin: 0 0 .4rem; letter-spacing: .02em;
+    text-wrap: balance;
+  }
+  .lede { color: var(--ink-soft); font-size: .95rem; margin-bottom: 2.2rem; }
+  h2 {
+    font-size: 1.05rem; letter-spacing: .1em;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: .5rem; margin: 2.6rem 0 1rem;
+  }
+  .spec { display: grid; grid-template-columns: 7.5em 1fr; gap: .25rem .9rem; font-size: .92rem; }
+  .spec dt { color: var(--ink-soft); }
+  .spec dd { margin: 0; }
+  .plans { display: grid; gap: 1.4rem; margin-top: 1.2rem; }
+  @media (min-width: 640px) { .plans { grid-template-columns: 1fr 1fr; } }
+  .plan {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.3rem 1.3rem 1.5rem;
+  }
+  .plan h3 { margin: 0 0 .2rem; font-size: 1.05rem; }
+  .plan .mood { color: var(--accent); font-size: .8rem; letter-spacing: .12em; margin-bottom: .9rem; }
+  .iconmock {
+    width: 150px; height: 150px; border-radius: 50%;
+    margin: 0 auto 1rem; position: relative; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(80,40,90,.25);
+  }
+  .iconmock .berry {
+    position: absolute; left: 50%; top: 44%;
+    width: 58%; height: 58%;
+    transform: translate(-50%, -50%) rotate(8deg);
+    border-radius: 48% 48% 62% 62% / 40% 40% 78% 78%;
+  }
+  .iconmock .label {
+    position: absolute; left: 0; right: 0; bottom: 12%;
+    text-align: center; font-size: .62rem; letter-spacing: .06em;
+    font-family: Georgia, serif; font-style: italic;
+  }
+  .mockA { background: radial-gradient(circle at 50% 38%, #8a6499 0%, #6e527f 45%, #35253f 100%); }
+  .mockA .berry {
+    background:
+      radial-gradient(circle at 32% 28%, #ffd9ed 0%, rgba(255,217,237,0) 24%),
+      radial-gradient(circle at 60% 70%, #8e2859 0%, rgba(142,40,89,0) 55%),
+      radial-gradient(circle at 50% 45%, #ff8fc4 0%, #d94b85 70%);
+    box-shadow: inset 0 -8px 18px rgba(142,40,89,.55), inset 4px 6px 10px rgba(255,255,255,.35);
+  }
+  .mockA .label { color: #fff4fb; text-shadow: 0 1px 3px #5a274e; }
+  .mockB { background: radial-gradient(circle at 50% 34%, #f2ddf0 0%, #cdaed3 55%, #a487b8 100%); }
+  .mockB .berry {
+    background:
+      radial-gradient(circle at 30% 26%, #ffffff 0%, rgba(255,255,255,0) 30%),
+      radial-gradient(circle at 65% 75%, #c76d9d 0%, rgba(199,109,157,0) 60%),
+      radial-gradient(circle at 50% 45%, #ffc5de 0%, #ef8fbb 75%);
+    box-shadow: inset 0 -6px 14px rgba(160,90,130,.4), inset 3px 5px 12px rgba(255,255,255,.65);
+  }
+  .mockB .label { color: #6d3d58; }
+  .swatches { display: flex; gap: .4rem; margin: .8rem 0; flex-wrap: wrap; }
+  .sw {
+    width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.12);
+  }
+  .plan ul { margin: .6rem 0 0; padding-left: 1.1em; font-size: .9rem; }
+  .plan li { margin-bottom: .35rem; }
+  .note {
+    background: var(--accent-soft); border-radius: 12px;
+    padding: 1.1rem 1.3rem; font-size: .92rem; margin-top: 1.2rem;
+  }
+  .note strong { color: var(--accent); }
+  .rules { font-size: .9rem; padding-left: 1.1em; }
+  .rules li { margin-bottom: .4rem; }
+  footer { margin-top: 3rem; font-size: .8rem; color: var(--ink-soft); text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Icon Proposal</p>
+  <h1>Ichigo Club</h1>
+  <p class="lede">インスタアイコン設計案 — グリッターピンクのいちご。参考にもらった心臓の質感をいちごに移す。方向性は2つ。どっちが好きか選んで。混ぜてもいい。</p>
+
+  <h2>決まっている仕様</h2>
+  <dl class="spec">
+    <dt>用途</dt><dd>Instagramアイコン（丸く切り抜かれる）</dd>
+    <dt>モチーフ</dt><dd>リアル寄り立体のいちご 1個・中央配置</dd>
+    <dt>質感</dt><dd>参考画像の心臓と同じグリッター＋パールの立体感</dd>
+    <dt>背景</dt><dd>紫ピンクの夢っぽい霞（雲・蝶などの飾りなし）</dd>
+    <dt>文字</dt><dd>Ichigo Club（小さくても読める処理）</dd>
+  </dl>
+
+  <h2>方向性 2案</h2>
+  <div class="plans">
+    <div class="plan">
+      <div class="iconmock mockA"><div class="berry"></div><div class="label">Ichigo Club</div></div>
+      <h3>案A ジュエルいちご</h3>
+      <p class="mood">夜・宝石・大人っぽい</p>
+      <div class="swatches">
+        <div class="sw" style="background:#6e527f"></div>
+        <div class="sw" style="background:#35253f"></div>
+        <div class="sw" style="background:#d94b85"></div>
+        <div class="sw" style="background:#ff8fc4"></div>
+        <div class="sw" style="background:#ffd9ed"></div>
+      </div>
+      <ul>
+        <li>ピンクの透明樹脂でできた宝石みたいないちご。内部に細かいラメが浮かぶ</li>
+        <li>背景は暗めの紫。中央だけ光って、いちごがくっきり浮き上がる</li>
+        <li>文字は白、濃い紫の細フチ付きでいちごの下に</li>
+        <li>参考画像の心臓に一番近いのはこっち</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="iconmock mockB"><div class="berry"></div><div class="label">Ichigo Club</div></div>
+      <h3>案B パールいちご</h3>
+      <p class="mood">甘い・ふんわり・夢かわ</p>
+      <div class="swatches">
+        <div class="sw" style="background:#cdaed3"></div>
+        <div class="sw" style="background:#f2ddf0"></div>
+        <div class="sw" style="background:#ef8fbb"></div>
+        <div class="sw" style="background:#ffc5de"></div>
+        <div class="sw" style="background:#ffffff"></div>
+      </div>
+      <ul>
+        <li>パール陶器みたいな、つやっと柔らかいいちご。ラメは控えめでオーロラ反射</li>
+        <li>背景は淡いラベンダー×霞んだローズピンクで全体が明るい</li>
+        <li>文字は濃い赤紫でいちごの下に緩いアーチ</li>
+        <li>ホーム画面で見た時に優しく目立つのはこっち</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>私のおすすめは案A。</strong>参考でくれた心臓の「刺さる感じ」はAの方が出る。ただしアイコンとして小さく表示された時の可愛さはBが強い。Aの宝石質感にBの明るめ背景を合わせる折衷もできる。
+  </div>
+
+  <h2>作る時に守ること（プロ諮問のまとめ）</h2>
+  <ul class="rules">
+    <li>いちごは画面の6割サイズ・中央。丸切り抜きで欠けないよう外周15%は空ける</li>
+    <li>ラメの粒は細かく。粗いとディスコボールになって安っぽい</li>
+    <li>文字は太めの上品なスクリプト体。細い筆記体は縮小で潰れる</li>
+    <li>背景といちごの明るさに差をつけて輪郭を立たせる</li>
+    <li>種が黒く深いと不気味になるので、種は浅く小さく</li>
+  </ul>
+
+  <footer>ニア制作 — 決めたらDiscordで「A」「B」か「Aだけどここ変えて」と返して</footer>
+</main>
+</body>
+</html>
