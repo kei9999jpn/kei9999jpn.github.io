@@ -96,6 +96,29 @@ body{display:grid;place-items:center}
 }
 #bottleReflect svg{display:block;width:100%;height:auto}
 .asset-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#bg .asset-fill{object-fit:cover;will-change:transform;filter:brightness(1.6) saturate(1.5)}
+#bg .heroGlow{
+  position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;
+  background:
+    radial-gradient(520px 360px at 34% 82%, rgba(124,95,184,.34), transparent 70%),
+    radial-gradient(720px 560px at 36% 40%, rgba(185,164,230,.10), transparent 65%);
+}
+#frame .asset-fill{mix-blend-mode:screen;opacity:.92}
+
+/* 実写ヒーロー使用時のボトルラベル(空白ラベルに重ねるブランド文字) */
+#bottleLabel{
+  position:absolute;left:250px;top:517px;width:219px;height:185px;
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  pointer-events:none;
+}
+#bottleLabel .kanji{
+  font-family:var(--font-display);font-weight:600;
+  font-size:58px;letter-spacing:.3em;text-indent:.3em;color:rgba(232,226,212,.92);
+}
+#bottleLabel .latin{
+  font-family:var(--font-ui);font-weight:500;
+  font-size:14px;letter-spacing:.5em;text-indent:.5em;color:rgba(201,182,138,.85);
+}
 
 /* ============ L5: headline 縦書きメインコピー ============ */
 #headline{
@@ -130,7 +153,7 @@ body{display:grid;place-items:center}
 
 /* ============ L7: badge ============ */
 #badge{
-  position:absolute;left:84px;top:88px;
+  position:absolute;left:112px;top:100px;
   font-family:var(--font-ui);font-weight:500;
   font-size:21px;letter-spacing:.2em;color:var(--iris);
   border:1px solid rgba(185,164,230,.5);border-radius:999px;
@@ -272,6 +295,11 @@ body{display:grid;place-items:center}
     </div>
 
     <div id="bottleReflect" aria-hidden="true"></div>
+
+    <div id="bottleLabel" aria-hidden="true">
+      <span class="kanji">月虹</span>
+      <span class="latin">GEKKOU</span>
+    </div>
   </div>
 
   <!-- L3: frame（商品より上・文字より下） -->
@@ -332,15 +360,19 @@ body{display:grid;place-items:center}
   const [bgPng, productPng, framePng] = await Promise.all([
     tryImg("./assets/bg.png"), tryImg("./assets/product.png"), tryImg("./assets/frame.png")
   ]);
-  function swap(layerId, src, keepIds){
+  function swap(layerId, src, keepSel){
     const layer = document.getElementById(layerId);
-    [...layer.children].forEach(c=>{ if(!(keepIds||[]).includes(c.id)) c.style.display="none"; });
+    [...layer.children].forEach(c=>{ if(!(keepSel && c.matches(keepSel))) c.style.display="none"; });
     const img = document.createElement("img");
     img.src = src; img.className = "asset-fill"; img.alt = "";
-    layer.appendChild(img);
+    layer.insertBefore(img, layer.firstChild); // 粒状感・ビネットは写真の上に残す
     return img;
   }
-  if(bgPng)     swap("bg", bgPng);
+
+  // ヒーローモード: bg.png が「背景+商品」を兼ねた実写。コード製の瓶・月虹は消す
+  const heroMode = !!bgPng && !productPng;
+
+  if(bgPng)     swap("bg", bgPng, heroMode ? ".grain" : null); // 写真自身に周辺減光があるためビネットは重ねない
   if(framePng)  swap("frame", framePng);
   if(productPng){
     // 瓶と反射はPNGに置き換え、月虹の弧は演出として残す
@@ -351,9 +383,19 @@ body{display:grid;place-items:center}
     img.src = productPng; img.className = "asset-fill"; img.alt = "商品画像";
     wrap.appendChild(img);
   }
+  if(heroMode){
+    const glow = document.createElement("div");
+    glow.className = "heroGlow";
+    const grain = document.querySelector("#bg .grain");
+    document.getElementById("bg").insertBefore(glow, grain); // 写真の上・粒状感の下
+    ["moonbow","bottleWrap","bottleReflect"].forEach(id=>{ document.getElementById(id).style.display = "none"; });
+    const halo = document.querySelector("#ambient .halo");
+    if(halo) halo.style.display = "none"; // 写真自身の月暈があるため
+    document.getElementById("bottleLabel").style.display = "flex";
+  }
 
   /* ---- 反射は瓶SVGの複製で作る（PNG差し替え時は非表示） ---- */
-  if(!productPng){
+  if(!productPng && !heroMode){
     const src = document.querySelector("#bottleWrap svg");
     document.getElementById("bottleReflect").appendChild(src.cloneNode(true));
   }
@@ -367,11 +409,12 @@ body{display:grid;place-items:center}
   headline.textContent = "";
   chars.forEach(s=>headline.appendChild(s));
 
-  /* ---- ambient粒子を生成 ---- */
+  /* ---- ambient粒子を生成（実写ヒーロー時は控えめに） ---- */
   const ambient = document.getElementById("ambient");
   const motes = [];
   const COLORS = ["rgba(185,164,230,.5)","rgba(232,226,212,.4)","rgba(124,95,184,.45)"];
-  for(let i=0;i<26;i++){
+  const MOTE_N = heroMode ? 13 : 26;
+  for(let i=0;i<MOTE_N;i++){
     const m = document.createElement("div");
     m.className = "mote";
     const sz = 2 + (i%4);
@@ -391,25 +434,45 @@ body{display:grid;place-items:center}
 
   /* ============ 登場シーケンス（約2.3秒） ============ */
   const intro = gsap.timeline({defaults:{ease:"power3.out"}});
-  intro
-    .from("#bg", {opacity:0, duration:.6}, 0)
-    .from("#ambient", {opacity:0, duration:1.2}, .1)
-    .from("#frame", {opacity:0, scale:1.03, duration:.9, transformOrigin:"50% 50%"}, .2)
-    .from("#moonbow", {opacity:0, scale:.94, duration:1.1, transformOrigin:"50% 82%"}, .45)
-    .from("#bottleWrap", {y:70, opacity:0, filter:"blur(16px)", duration:.95, ease:"expo.out"}, .35)
-    .from("#bottleReflect", {opacity:0, duration:.8}, .8)
-    .from(chars, {x:44, opacity:0, filter:"blur(8px)", duration:.62, stagger:.07, ease:"power2.out"}, .85)
-    .from("#subcopy", {y:26, opacity:0, duration:.6}, 1.5)
-    .from("#brand", {y:18, opacity:0, duration:.55}, 1.62)
-    .from("#badge", {scale:.55, opacity:0, duration:.5, ease:"back.out(2.2)"}, 1.72)
-    .from("#cta", {scale:.78, opacity:0, duration:.55, ease:"back.out(1.9)"}, 1.85);
+  if(heroMode){
+    intro
+      .from("#bg", {opacity:0, duration:.7}, 0)
+      .from("#bg .asset-fill", {scale:1.08, duration:1.6, ease:"expo.out", transformOrigin:"36% 55%"}, 0)
+      .from("#ambient", {opacity:0, duration:1.2}, .2)
+      .from("#frame", {opacity:0, scale:1.02, duration:.9, transformOrigin:"50% 50%"}, .3)
+      .from("#bottleLabel", {opacity:0, y:14, duration:.7}, .8)
+      .from(chars, {x:44, opacity:0, filter:"blur(8px)", duration:.62, stagger:.07, ease:"power2.out"}, .85)
+      .from("#subcopy", {y:26, opacity:0, duration:.6}, 1.5)
+      .from("#brand", {y:18, opacity:0, duration:.55}, 1.62)
+      .from("#badge", {scale:.55, opacity:0, duration:.5, ease:"back.out(2.2)"}, 1.72)
+      .from("#cta", {scale:.78, opacity:0, duration:.55, ease:"back.out(1.9)"}, 1.85);
+  } else {
+    intro
+      .from("#bg", {opacity:0, duration:.6}, 0)
+      .from("#ambient", {opacity:0, duration:1.2}, .1)
+      .from("#frame", {opacity:0, scale:1.03, duration:.9, transformOrigin:"50% 50%"}, .2)
+      .from("#moonbow", {opacity:0, scale:.94, duration:1.1, transformOrigin:"50% 82%"}, .45)
+      .from("#bottleWrap", {y:70, opacity:0, filter:"blur(16px)", duration:.95, ease:"expo.out"}, .35)
+      .from("#bottleReflect", {opacity:0, duration:.8}, .8)
+      .from(chars, {x:44, opacity:0, filter:"blur(8px)", duration:.62, stagger:.07, ease:"power2.out"}, .85)
+      .from("#subcopy", {y:26, opacity:0, duration:.6}, 1.5)
+      .from("#brand", {y:18, opacity:0, duration:.55}, 1.62)
+      .from("#badge", {scale:.55, opacity:0, duration:.5, ease:"back.out(2.2)"}, 1.72)
+      .from("#cta", {scale:.78, opacity:0, duration:.55, ease:"back.out(1.9)"}, 1.85);
+  }
 
   /* ============ 8秒ループ ============ */
-  // 瓶の浮遊
-  gsap.to("#bottleWrap", {y:-12, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
-  gsap.to("#bottleReflect", {y:6, opacity:.07, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
-  // 月虹の明滅
-  gsap.to("#moonbow", {opacity:.55, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+  if(heroMode){
+    // 実写のスロー・ケンバーンズ(瓶に寄っていく)と枠の微かな明滅
+    gsap.to("#bg .asset-fill", {scale:1.045, duration:8, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3, transformOrigin:"36% 55%"});
+    gsap.to("#frame .asset-fill", {opacity:.72, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.6});
+  } else {
+    // 瓶の浮遊
+    gsap.to("#bottleWrap", {y:-12, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+    gsap.to("#bottleReflect", {y:6, opacity:.07, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+    // 月虹の明滅
+    gsap.to("#moonbow", {opacity:.55, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+  }
   // 粒子の漂い
   motes.forEach((m,i)=>{
     gsap.to(m, {
