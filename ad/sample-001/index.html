@@ -96,7 +96,7 @@ body{display:grid;place-items:center}
 }
 #bottleReflect svg{display:block;width:100%;height:auto}
 .asset-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-#bg .asset-fill{object-fit:cover;will-change:transform;filter:brightness(1.6) saturate(1.5)}
+#bg .asset-fill{object-fit:cover;will-change:transform}
 #bg .heroGlow{
   position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;
   background:
@@ -107,8 +107,8 @@ body{display:grid;place-items:center}
 
 /* 実写ヒーロー使用時のボトルラベル(空白ラベルに重ねるブランド文字) */
 #bottleLabel{
-  position:absolute;left:250px;top:517px;width:219px;height:185px;
-  display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  position:absolute;left:262px;top:504px;width:240px;height:160px;
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   pointer-events:none;
 }
 #bottleLabel .kanji{
@@ -136,7 +136,8 @@ body{display:grid;place-items:center}
   writing-mode:vertical-rl;
   font-family:var(--font-ui);font-weight:400;
   font-size:24px;line-height:2.3;letter-spacing:.18em;
-  color:rgba(232,226,212,.82);
+  color:rgba(232,226,212,.88);
+  text-shadow:0 1px 14px rgba(5,4,10,.75);
 }
 #brand{
   position:absolute;left:84px;bottom:96px;
@@ -145,10 +146,12 @@ body{display:grid;place-items:center}
 #brand .kanji{
   font-family:var(--font-display);font-weight:800;
   font-size:54px;letter-spacing:.3em;color:var(--moon);
+  text-shadow:0 2px 22px rgba(5,4,10,.95), 0 0 34px rgba(5,4,10,.8);
 }
 #brand .latin{
   font-family:var(--font-ui);font-weight:500;
   font-size:16px;letter-spacing:.42em;color:var(--brass);
+  text-shadow:0 1px 12px rgba(5,4,10,.9), 0 0 26px rgba(5,4,10,.7);
 }
 
 /* ============ L7: badge ============ */
@@ -384,10 +387,6 @@ body{display:grid;place-items:center}
     wrap.appendChild(img);
   }
   if(heroMode){
-    const glow = document.createElement("div");
-    glow.className = "heroGlow";
-    const grain = document.querySelector("#bg .grain");
-    document.getElementById("bg").insertBefore(glow, grain); // 写真の上・粒状感の下
     ["moonbow","bottleWrap","bottleReflect"].forEach(id=>{ document.getElementById(id).style.display = "none"; });
     const halo = document.querySelector("#ambient .halo");
     if(halo) halo.style.display = "none"; // 写真自身の月暈があるため
