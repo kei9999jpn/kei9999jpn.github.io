@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月虹 GEKKOU — SAMPLE-001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   デザイントークン
+   世界観：月夜の香水。墨紺の闇 × 藤紫 × 月白 × 真鍮
+   ============================================================ */
+:root{
+  --ink:        #0B0A14;   /* 墨紺 — 夜の地色 */
+  --violet-deep:#241B38;   /* 深紫 — 闇の中間層 */
+  --violet:     #7C5FB8;   /* 藤紫 — 主役の差し色 */
+  --iris:       #B9A4E6;   /* 淡藤 — 光・虹のハイライト */
+  --moon:       #E8E2D4;   /* 月白 — 文字色 */
+  --brass:      #C9B68A;   /* 真鍮 — 枠・ラベルの細部 */
+
+  --font-display:'Shippori Mincho', serif;      /* 見出し・ブランド */
+  --font-ui:'Zen Kaku Gothic New', sans-serif;  /* コピー・UI */
+
+  --sp-1:14px; --sp-2:28px; --sp-3:56px; --sp-4:84px; /* 余白スケール */
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden}
+body{display:grid;place-items:center}
+
+/* ---- 1080×1080 ステージ（画面に合わせて縮尺のみ変える） ---- */
+#stage{
+  position:fixed;left:50%;top:50%;width:1080px;height:1080px;
+  transform:translate(-50%,-50%);transform-origin:50% 50%;
+  background:var(--ink);overflow:hidden;
+  font-family:var(--font-ui);
+}
+
+/* すべてのレイヤーはステージ全面に重ねる */
+.layer{position:absolute;inset:0;pointer-events:none}
+
+/* ============ L1: bg 背景 ============ */
+#bg .grad{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(1200px 900px at 30% 88%, rgba(124,95,184,.20), transparent 62%),
+    radial-gradient(900px 700px at 78% 12%, rgba(185,164,230,.10), transparent 60%),
+    linear-gradient(168deg, #121022 0%, var(--ink) 46%, #070610 100%);
+}
+#bg .vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(1400px 1400px at 50% 46%, transparent 58%, rgba(0,0,0,.5) 100%);
+}
+#bg .grain{
+  position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* ============ L2: ambient 粒子・月暈 ============ */
+#ambient .halo{
+  position:absolute;left:52%;top:-320px;width:820px;height:820px;border-radius:50%;
+  background:radial-gradient(circle, rgba(232,226,212,.10) 0%, rgba(185,164,230,.05) 42%, transparent 68%);
+}
+.mote{position:absolute;border-radius:50%;will-change:transform,opacity}
+
+/* ============ L3: frame 枠 ============ */
+#frame .line{
+  position:absolute;inset:30px;border:1px solid rgba(232,226,212,.14);
+}
+#frame .tick{
+  position:absolute;width:26px;height:26px;border-color:var(--brass);border-style:solid;opacity:.85;
+}
+#frame .tick.tl{left:22px;top:22px;border-width:2px 0 0 2px}
+#frame .tick.tr{right:22px;top:22px;border-width:2px 2px 0 0}
+#frame .tick.bl{left:22px;bottom:22px;border-width:0 0 2px 2px}
+#frame .tick.br{right:22px;bottom:22px;border-width:0 2px 2px 0}
+
+/* ============ L4: product 商品（瓶）＋月虹 ============ */
+#product{display:block}
+#moonbow{
+  position:absolute;left:58px;top:40px;width:700px;height:700px;
+  will-change:transform,opacity;
+}
+#bottleWrap{
+  position:absolute;left:186px;top:238px;width:430px;height:660px;
+  will-change:transform;
+}
+#bottleWrap svg{display:block;width:100%;height:auto}
+#bottleReflect{
+  position:absolute;left:186px;top:872px;width:430px;height:200px;
+  transform:scaleY(-1);opacity:.10;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,.9), transparent 75%);
+          mask-image:linear-gradient(to top, rgba(0,0,0,.9), transparent 75%);
+}
+#bottleReflect svg{display:block;width:100%;height:auto}
+.asset-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+
+/* ============ L5: headline 縦書きメインコピー ============ */
+#headline{
+  position:absolute;right:110px;top:86px;height:920px;
+  writing-mode:vertical-rl;
+  font-family:var(--font-display);font-weight:600;
+  font-size:100px;letter-spacing:.12em;color:var(--moon);
+  text-shadow:0 0 44px rgba(124,95,184,.35);
+}
+#headline .ch{display:inline-block;will-change:transform,opacity}
+
+/* ============ L6: subcopy ＋ ブランド ============ */
+#subcopy{
+  position:absolute;right:308px;top:150px;
+  writing-mode:vertical-rl;
+  font-family:var(--font-ui);font-weight:400;
+  font-size:24px;line-height:2.3;letter-spacing:.18em;
+  color:rgba(232,226,212,.82);
+}
+#brand{
+  position:absolute;left:84px;bottom:96px;
+  display:flex;align-items:baseline;gap:18px;
+}
+#brand .kanji{
+  font-family:var(--font-display);font-weight:800;
+  font-size:54px;letter-spacing:.3em;color:var(--moon);
+}
+#brand .latin{
+  font-family:var(--font-ui);font-weight:500;
+  font-size:16px;letter-spacing:.42em;color:var(--brass);
+}
+
+/* ============ L7: badge ============ */
+#badge{
+  position:absolute;left:84px;top:88px;
+  font-family:var(--font-ui);font-weight:500;
+  font-size:21px;letter-spacing:.2em;color:var(--iris);
+  border:1px solid rgba(185,164,230,.5);border-radius:999px;
+  padding:12px 30px;
+  background:rgba(36,27,56,.5);
+  will-change:transform,opacity;
+}
+
+/* ============ L8: cta ============ */
+#cta{
+  position:absolute;right:84px;bottom:96px;
+  pointer-events:auto;cursor:pointer;
+  display:flex;align-items:center;gap:16px;
+  font-family:var(--font-ui);font-weight:700;
+  font-size:30px;letter-spacing:.14em;color:#fff;
+  padding:26px 46px;border:none;border-radius:14px;
+  background:linear-gradient(140deg, #8A6BCB 0%, var(--violet) 48%, #5A4390 100%);
+  box-shadow:
+    0 14px 42px rgba(124,95,184,.42),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -3px 10px rgba(20,12,40,.5);
+  overflow:hidden;position:absolute;
+  will-change:transform;
+  transition:filter .25s;
+}
+#cta:hover{filter:brightness(1.15)}
+#cta .arrow{font-size:26px;transform:translateY(1px)}
+#cta .shine{
+  position:absolute;top:-30%;left:-70%;width:46%;height:160%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  will-change:transform;
+}
+
+/* ============ L9: light 大判の光スイープ ============ */
+#light .sweep{
+  position:absolute;top:-15%;left:-40%;width:26%;height:130%;
+  transform:rotate(14deg);
+  background:linear-gradient(90deg, transparent, rgba(232,226,212,.07) 45%, rgba(185,164,230,.10) 55%, transparent);
+  will-change:transform;
+}
+
+/* ============ reduced-motion ============ */
+@media (prefers-reduced-motion: reduce){
+  .anim-hidden{opacity:1 !important;transform:none !important;filter:none !important}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- L1: bg -->
+  <div class="layer" id="bg" data-layer="bg">
+    <div class="grad"></div>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- L2: ambient -->
+  <div class="layer" id="ambient" data-layer="ambient">
+    <div class="halo"></div>
+  </div>
+
+  <!-- L4: product（月虹 → 瓶の順で重ねる） -->
+  <div class="layer" id="product" data-layer="product">
+    <svg id="moonbow" viewBox="0 0 640 640" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="bowGrad" x1="0" y1="640" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stop-color="#7C5FB8" stop-opacity="0"/>
+          <stop offset=".25" stop-color="#7C5FB8" stop-opacity=".55"/>
+          <stop offset=".5"  stop-color="#B9A4E6" stop-opacity=".85"/>
+          <stop offset=".75" stop-color="#C9B68A" stop-opacity=".5"/>
+          <stop offset="1"   stop-color="#C9B68A" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="bowBlur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+      <path d="M 30 640 A 290 290 0 0 1 610 640" stroke="url(#bowGrad)" stroke-width="18" filter="url(#bowBlur)"/>
+      <path d="M 62 640 A 258 258 0 0 1 578 640" stroke="url(#bowGrad)" stroke-width="7" opacity=".65" filter="url(#bowBlur)"/>
+    </svg>
+
+    <div id="bottleWrap">
+      <svg viewBox="0 0 430 660" aria-label="オードパルファム 月虹の瓶">
+        <defs>
+          <linearGradient id="glass" x1="0" y1="0" x2="430" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0"   stop-color="#16111F"/>
+            <stop offset=".18" stop-color="#241B38"/>
+            <stop offset=".5"  stop-color="#2E2347"/>
+            <stop offset=".84" stop-color="#1C1530"/>
+            <stop offset="1"   stop-color="#120E1D"/>
+          </linearGradient>
+          <linearGradient id="liquid" x1="0" y1="240" x2="0" y2="600" gradientUnits="userSpaceOnUse">
+            <stop offset="0"  stop-color="#6E54A8"/>
+            <stop offset=".45" stop-color="#453277"/>
+            <stop offset="1"  stop-color="#261B45"/>
+          </linearGradient>
+          <linearGradient id="capMetal" x1="0" y1="0" x2="430" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0"   stop-color="#221C2E"/>
+            <stop offset=".28" stop-color="#4A4058"/>
+            <stop offset=".5"  stop-color="#786A8C"/>
+            <stop offset=".72" stop-color="#3A3048"/>
+            <stop offset="1"   stop-color="#1A1524"/>
+          </linearGradient>
+          <radialGradient id="innerGlow" cx=".5" cy=".62" r=".55">
+            <stop offset="0" stop-color="#B9A4E6" stop-opacity=".32"/>
+            <stop offset="1" stop-color="#B9A4E6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 接地影 -->
+        <ellipse cx="215" cy="636" rx="170" ry="18" fill="#000" opacity=".55"/>
+
+        <!-- キャップ -->
+        <rect x="152" y="26" width="126" height="118" rx="12" fill="url(#capMetal)"/>
+        <rect x="152" y="26" width="126" height="118" rx="12" fill="none" stroke="#0B0A14" stroke-opacity=".6"/>
+        <rect x="166" y="38" width="8" height="94" rx="4" fill="#FFFFFF" opacity=".14"/>
+        <!-- ネック -->
+        <path d="M 168 144 L 262 144 L 276 196 L 154 196 Z" fill="#1A1428"/>
+        <!-- 瓶体（ガラス） -->
+        <path d="M 70 232 Q 70 196 118 196 L 312 196 Q 360 196 360 232 L 360 588 Q 360 624 312 624 L 118 624 Q 70 624 70 588 Z" fill="url(#glass)"/>
+        <!-- 香水液 -->
+        <path d="M 92 268 L 338 268 L 338 578 Q 338 602 306 602 L 124 602 Q 92 602 92 578 Z" fill="url(#liquid)"/>
+        <ellipse cx="215" cy="268" rx="123" ry="12" fill="#B9A4E6" opacity=".38"/>
+        <path d="M 92 268 L 338 268 L 338 578 Q 338 602 306 602 L 124 602 Q 92 602 92 578 Z" fill="url(#innerGlow)"/>
+        <!-- ガラスの輪郭とハイライト -->
+        <path d="M 70 232 Q 70 196 118 196 L 312 196 Q 360 196 360 232 L 360 588 Q 360 624 312 624 L 118 624 Q 70 624 70 588 Z"
+              fill="none" stroke="#B9A4E6" stroke-opacity=".28" stroke-width="1.5"/>
+        <path d="M 94 240 Q 94 216 122 214" fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+        <rect x="96" y="252" width="10" height="330" rx="5" fill="#FFFFFF" opacity=".13"/>
+        <rect x="330" y="270" width="5" height="290" rx="2.5" fill="#FFFFFF" opacity=".07"/>
+        <!-- ラベル -->
+        <rect x="150" y="330" width="130" height="176" fill="#E8E2D4" fill-opacity=".05" stroke="#C9B68A" stroke-opacity=".55" stroke-width="1"/>
+        <rect x="156" y="336" width="118" height="164" fill="none" stroke="#C9B68A" stroke-opacity=".25" stroke-width="1"/>
+        <text x="215" y="396" text-anchor="middle" font-family="'Shippori Mincho', serif" font-size="44" font-weight="600" fill="#E8E2D4" letter-spacing="6">月</text>
+        <text x="215" y="452" text-anchor="middle" font-family="'Shippori Mincho', serif" font-size="44" font-weight="600" fill="#E8E2D4" letter-spacing="6">虹</text>
+        <text x="215" y="486" text-anchor="middle" font-family="'Zen Kaku Gothic New', sans-serif" font-size="13" fill="#C9B68A" letter-spacing="4">GEKKOU</text>
+      </svg>
+    </div>
+
+    <div id="bottleReflect" aria-hidden="true"></div>
+  </div>
+
+  <!-- L3: frame（商品より上・文字より下） -->
+  <div class="layer" id="frame" data-layer="frame">
+    <div class="line"></div>
+    <div class="tick tl"></div><div class="tick tr"></div>
+    <div class="tick bl"></div><div class="tick br"></div>
+  </div>
+
+  <!-- L5: headline -->
+  <h1 class="anim-hidden" id="headline" data-layer="headline">夜を、まとう。</h1>
+
+  <!-- L6: subcopy ＋ brand -->
+  <p class="anim-hidden" id="subcopy" data-layer="subcopy">月下の白花とムスク。<br>夜にだけ、少し濃くなる香り。</p>
+  <div class="anim-hidden" id="brand">
+    <span class="kanji">月虹</span>
+    <span class="latin">GEKKOU&nbsp;/&nbsp;EAU&nbsp;DE&nbsp;PARFUM</span>
+  </div>
+
+  <!-- L7: badge -->
+  <div class="anim-hidden" id="badge" data-layer="badge">無料サンプルあり</div>
+
+  <!-- L8: cta -->
+  <button class="anim-hidden" id="cta" data-layer="cta">
+    詳しくはこちら<span class="arrow">→</span>
+    <span class="shine"></span>
+  </button>
+
+  <!-- L9: light -->
+  <div class="layer" id="light" data-layer="light">
+    <div class="sweep"></div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(async function(){
+  "use strict";
+
+  /* ---- ステージを画面にフィットさせる（縮尺のみ・レイアウト不変） ---- */
+  const stage = document.getElementById("stage");
+  function fit(){
+    const s = Math.min(innerWidth/1080, innerHeight/1080);
+    stage.style.transform = "translate(-50%,-50%) scale(" + s + ")";
+  }
+  addEventListener("resize", fit); fit();
+
+  /* ---- 素材差し替え契約：assets/ にPNGがあれば読み込んで使う ---- */
+  function tryImg(src){
+    return new Promise(res=>{
+      const i = new Image();
+      i.onload = ()=>res(src);
+      i.onerror = ()=>res(null);
+      i.src = src;
+    });
+  }
+  const [bgPng, productPng, framePng] = await Promise.all([
+    tryImg("./assets/bg.png"), tryImg("./assets/product.png"), tryImg("./assets/frame.png")
+  ]);
+  function swap(layerId, src, keepIds){
+    const layer = document.getElementById(layerId);
+    [...layer.children].forEach(c=>{ if(!(keepIds||[]).includes(c.id)) c.style.display="none"; });
+    const img = document.createElement("img");
+    img.src = src; img.className = "asset-fill"; img.alt = "";
+    layer.appendChild(img);
+    return img;
+  }
+  if(bgPng)     swap("bg", bgPng);
+  if(framePng)  swap("frame", framePng);
+  if(productPng){
+    // 瓶と反射はPNGに置き換え、月虹の弧は演出として残す
+    document.getElementById("bottleReflect").style.display = "none";
+    const wrap = document.getElementById("bottleWrap");
+    wrap.querySelector("svg").style.display = "none";
+    const img = document.createElement("img");
+    img.src = productPng; img.className = "asset-fill"; img.alt = "商品画像";
+    wrap.appendChild(img);
+  }
+
+  /* ---- 反射は瓶SVGの複製で作る（PNG差し替え時は非表示） ---- */
+  if(!productPng){
+    const src = document.querySelector("#bottleWrap svg");
+    document.getElementById("bottleReflect").appendChild(src.cloneNode(true));
+  }
+
+  /* ---- 見出しを1文字ずつ<span>化 ---- */
+  const headline = document.getElementById("headline");
+  const chars = [...headline.textContent].map(ch=>{
+    const s = document.createElement("span");
+    s.className = "ch"; s.textContent = ch; return s;
+  });
+  headline.textContent = "";
+  chars.forEach(s=>headline.appendChild(s));
+
+  /* ---- ambient粒子を生成 ---- */
+  const ambient = document.getElementById("ambient");
+  const motes = [];
+  const COLORS = ["rgba(185,164,230,.5)","rgba(232,226,212,.4)","rgba(124,95,184,.45)"];
+  for(let i=0;i<26;i++){
+    const m = document.createElement("div");
+    m.className = "mote";
+    const sz = 2 + (i%4);
+    m.style.width = m.style.height = sz + "px";
+    m.style.left = (4 + (i*37)%92) + "%";
+    m.style.top  = (6 + (i*53)%86) + "%";
+    m.style.background = COLORS[i%3];
+    m.style.boxShadow = "0 0 " + (sz*3) + "px " + COLORS[i%3];
+    ambient.appendChild(m); motes.push(m);
+  }
+
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduced || !window.gsap){
+    // 動きを控えたフォールバック：全要素をそのまま表示
+    return;
+  }
+
+  /* ============ 登場シーケンス（約2.3秒） ============ */
+  const intro = gsap.timeline({defaults:{ease:"power3.out"}});
+  intro
+    .from("#bg", {opacity:0, duration:.6}, 0)
+    .from("#ambient", {opacity:0, duration:1.2}, .1)
+    .from("#frame", {opacity:0, scale:1.03, duration:.9, transformOrigin:"50% 50%"}, .2)
+    .from("#moonbow", {opacity:0, scale:.94, duration:1.1, transformOrigin:"50% 82%"}, .45)
+    .from("#bottleWrap", {y:70, opacity:0, filter:"blur(16px)", duration:.95, ease:"expo.out"}, .35)
+    .from("#bottleReflect", {opacity:0, duration:.8}, .8)
+    .from(chars, {x:44, opacity:0, filter:"blur(8px)", duration:.62, stagger:.07, ease:"power2.out"}, .85)
+    .from("#subcopy", {y:26, opacity:0, duration:.6}, 1.5)
+    .from("#brand", {y:18, opacity:0, duration:.55}, 1.62)
+    .from("#badge", {scale:.55, opacity:0, duration:.5, ease:"back.out(2.2)"}, 1.72)
+    .from("#cta", {scale:.78, opacity:0, duration:.55, ease:"back.out(1.9)"}, 1.85);
+
+  /* ============ 8秒ループ ============ */
+  // 瓶の浮遊
+  gsap.to("#bottleWrap", {y:-12, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+  gsap.to("#bottleReflect", {y:6, opacity:.07, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+  // 月虹の明滅
+  gsap.to("#moonbow", {opacity:.55, duration:4, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.3});
+  // 粒子の漂い
+  motes.forEach((m,i)=>{
+    gsap.to(m, {
+      x:"random(-46,46)", y:"random(-60,24)", opacity:"random(.15,.85)",
+      duration:5 + (i%5), ease:"sine.inOut", yoyo:true, repeat:-1, delay:2 + i*.12
+    });
+  });
+  // CTAの拍動
+  gsap.to("#cta", {scale:1.035, duration:1.05, ease:"sine.inOut", yoyo:true, repeat:-1, delay:2.6, transformOrigin:"50% 50%"});
+  // CTAの光（4秒ごと）
+  gsap.to("#cta .shine", {x:520, duration:.9, ease:"power2.inOut", repeat:-1, repeatDelay:3.1, delay:2.6});
+  // 大判スイープ（8秒周期・商品と画面全体を横切る）
+  gsap.to("#light .sweep", {x:1800, duration:2.4, ease:"power1.inOut", repeat:-1, repeatDelay:5.6, delay:3.0});
+})();
+</script>
+</body>
+</html>
